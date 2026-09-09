@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panagiotis Leventogiannis</title>
+<meta name="description" content="Electrical & Computer Engineering student at the University of the Peloponnese, working on brain–computer interfaces. Projects, experience and the diploma thesis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#EDF0EF; --surface:#FFFFFF; --surface-2:#F6F8F7;
+  --ink:#111819; --ink-2:#525E60; --ink-3:#5E6A6C;
+  --rule:#D2D9D8; --rule-2:#E2E7E6;
+  --accent:#BE3527; --accent-soft:rgba(190,53,39,.10);
+  --signal:#0E6B75;
+  --maxw:820px;
+  --f-display:"Literata",Georgia,"Times New Roman",serif;
+  --f-ui:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1011; --surface:#121A1B; --surface-2:#0F1617;
+    --ink:#E6EDEC; --ink-2:#A0AEAF; --ink-3:#93A1A2;
+    --rule:#25302F; --rule-2:#1C2525;
+    --accent:#E8574A; --accent-soft:rgba(232,87,74,.13);
+    --signal:#3FAFB9;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1011; --surface:#121A1B; --surface-2:#0F1617;
+  --ink:#E6EDEC; --ink-2:#A0AEAF; --ink-3:#93A1A2;
+  --rule:#25302F; --rule-2:#1C2525;
+  --accent:#E8574A; --accent-soft:rgba(232,87,74,.13);
+  --signal:#3FAFB9;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--f-display); font-size:17px; line-height:1.62;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+h1,h2,h3{margin:0; font-weight:600; line-height:1.2; text-wrap:balance}
+p{margin:0}
+ul{margin:0; padding:0; list-style:none}
+
+.wrap{max-width:var(--maxw); margin-inline:auto; padding-inline:24px}
+.stack{display:flex; flex-direction:column}
+.s-6{gap:6px} .s-10{gap:10px} .s-16{gap:16px} .s-28{gap:28px}
+
+/* ---------- top bar ---------- */
+.top{
+  position:sticky; top:0; z-index:20;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:saturate(1.4) blur(9px); border-bottom:1px solid var(--rule);
+}
+.top-in{max-width:var(--maxw); margin-inline:auto; padding:0 24px; height:50px;
+  display:flex; align-items:center; gap:16px}
+.mark{font-family:var(--f-mono); font-size:12px; font-weight:500; letter-spacing:.05em}
+.mark b{font-weight:500; color:var(--accent)}
+.lang{margin-inline-start:auto; font-family:var(--f-mono); font-size:11.5px; font-weight:500;
+  letter-spacing:.08em; color:var(--ink-2); background:transparent;
+  border:1px solid var(--rule); border-radius:3px; padding:5px 9px; cursor:pointer;
+  transition:color .15s, border-color .15s, background-color .15s}
+.lang:hover{color:var(--ink); border-color:var(--accent); background:var(--accent-soft)}
+
+/* ---------- header ---------- */
+header{padding-block:56px 40px}
+.eyebrow{font-family:var(--f-ui); font-size:11.5px; font-weight:600; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink-3)}
+h1{font-size:clamp(30px,5.2vw,44px); letter-spacing:-.022em}
+.lede{font-size:18.5px; line-height:1.6; color:var(--ink-2); max-width:62ch}
+
+/* ---------- contact ---------- */
+.contact{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
+.pill{display:inline-flex; align-items:center; gap:7px; text-decoration:none;
+  font-family:var(--f-ui); font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--surface); border:1px solid var(--rule); border-radius:4px;
+  padding:8px 13px; transition:border-color .15s, background-color .15s}
+.pill:hover{border-color:var(--accent); background:var(--accent-soft)}
+.pill svg{width:15px; height:15px; flex:0 0 auto; fill:currentColor; opacity:.72}
+
+/* ---------- sections ---------- */
+section{padding-block:34px; border-top:1px solid var(--rule)}
+h2{font-family:var(--f-ui); font-size:11.5px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:22px}
+
+/* a date rail: the chronology is information, so it gets its own column */
+.entry{display:grid; grid-template-columns:158px 1fr; gap:6px 24px; padding-block:16px;
+  border-top:1px solid var(--rule-2)}
+.entry:first-of-type{border-top:0; padding-top:2px}
+.when{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); padding-top:4px;
+  font-variant-numeric:tabular-nums; white-space:nowrap}
+.what h3{font-family:var(--f-ui); font-size:16.5px; letter-spacing:-.005em}
+.where{font-family:var(--f-ui); font-size:13.5px; color:var(--signal); margin-top:2px}
+.what p{font-family:var(--f-ui); font-size:14.5px; line-height:1.55; color:var(--ink-2); margin-top:7px}
+.what .links{display:flex; flex-wrap:wrap; gap:14px; margin-top:9px}
+.what .links a{font-family:var(--f-ui); font-size:13.5px; font-weight:500; color:var(--accent);
+  text-decoration:none; border-bottom:1px solid transparent}
+.what .links a:hover{border-bottom-color:currentColor}
+@media(max-width:620px){
+  .entry{grid-template-columns:1fr; gap:2px}
+  .when{padding-top:0; order:-1}
+}
+
+/* ---------- the thesis, given the room it earns ---------- */
+.thesis{background:var(--surface); border:1px solid var(--rule); border-inline-start:2px solid var(--accent);
+  border-radius:4px; padding:22px 24px; display:flex; flex-direction:column; gap:10px}
+.thesis .tag{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3)}
+.thesis h3{font-size:21px; letter-spacing:-.012em; line-height:1.28}
+.thesis p{font-family:var(--f-ui); font-size:15px; line-height:1.58; color:var(--ink-2)}
+.figures{display:flex; flex-wrap:wrap; gap:0 26px; margin-top:2px}
+.fig{display:flex; flex-direction:column; gap:1px}
+.fig .v{font-family:var(--f-mono); font-size:18px; font-weight:500; letter-spacing:-.01em}
+.fig .k{font-family:var(--f-ui); font-size:12px; color:var(--ink-3)}
+.cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
+.btn{display:inline-block; text-decoration:none; font-family:var(--f-ui); font-size:14px;
+  font-weight:600; padding:9px 16px; border-radius:4px; border:1px solid var(--accent);
+  color:var(--accent); transition:background-color .15s, color .15s}
+.btn:hover{background:var(--accent-soft)}
+.btn.solid{background:var(--accent); color:var(--paper); border-color:var(--accent)}
+.btn.solid:hover{filter:brightness(1.08)}
+
+/* ---------- education detail ---------- */
+.detail{display:grid; grid-template-columns:auto 1fr; gap:7px 18px; margin-top:9px;
+  font-family:var(--f-ui); font-size:14px}
+.detail dt{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3); padding-top:3px; white-space:nowrap}
+.detail dd{margin:0; color:var(--ink-2); line-height:1.5}
+
+footer{border-top:1px solid var(--rule); padding-block:30px 56px;
+  font-family:var(--f-ui); font-size:13px; color:var(--ink-3)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-in">
+    <span class="mark">PL<b>·</b>ECE</span>
+    <button class="lang" id="lang" type="button" lang="el" title="Διάβασε τη σελίδα στα ελληνικά">ΕΛ</button>
+  </div>
+</div>
+
+<header class="wrap stack s-16">
+  <div class="eyebrow" data-el="Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών · Πανεπιστήμιο Πελοποννήσου">Electrical &amp; Computer Engineering · University of the Peloponnese</div>
+  <h1 data-el="Παναγιώτης Λεβεντογιάννης">Panagiotis Leventogiannis</h1>
+  <p class="lede" data-el="Τελειώνω τη διπλωματική μου στις διεπαφές εγκεφάλου&#8211;υπολογιστή, υπό την επίβλεψη του Επίκουρου Καθηγητή Αθανάσιου Κούτρα. Ψάχνω δουλειά στη βιοπληροφορική, με έμφαση στη μηχανική μάθηση και τις εφαρμογές BCI.">I am finishing a thesis on brain&#8211;computer interfaces under Assistant Professor Athanasios Koutras. I am looking for work in bioinformatics, with a focus on machine learning and BCI applications.</p>
+  <div class="contact">
+    <a class="pill" href="mailto:plevedogiannis@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.4-8 4.6-8-4.6V6l8 4.6L20 6z"/></svg>
+      plevedogiannis@gmail.com</a>
+    <a class="pill" href="https://www.linkedin.com/in/panagiotis-levedogiannis" rel="me noopener" target="_blank">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>
+      LinkedIn</a>
+    <a class="pill" href="https://github.com/PanosLevedogiannis" rel="me noopener" target="_blank">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+      GitHub</a>
+  </div>
+</header>
+
+<main>
+<section class="wrap">
+  <h2 data-el="Διπλωματική εργασία">Diploma thesis</h2>
+  <div class="thesis">
+    <div class="tag" data-el="Πανεπιστήμιο Πελοποννήσου · Επιβλέπων: Αθανάσιος Κούτρας, Επίκουρος Καθηγητής">University of the Peloponnese · Supervisor: Athanasios Koutras, Assistant Professor</div>
+    <h3 data-el="Έλεγχος του ανθρωπόμορφου ρομποτικού χεριού InMoov i2 μέσω ΗΕΓ">EEG-Based Control of an Open-Source Anthropomorphic Robotic Hand &#8212; the InMoov i2</h3>
+    <p data-el="Μια διεπαφή εγκεφάλου&#8211;υπολογιστή που μετατρέπει τη φαντασία κίνησης σε εντολές για ρομποτικό χέρι: οκτώ κανάλια ΗΕΓ, κοινά χωρικά πρότυπα με γραμμικό ταξινομητή, και ένα Arduino που οδηγεί τους πέντε σερβοκινητήρες ενός InMoov i2 που τύπωσα και συναρμολόγησα. Η αξιολόγηση κρατά ολόκληρο run εκτός εκπαίδευσης, που είναι το σχήμα που αντιστοιχεί στην πραγματική χρήση.">A brain&#8211;computer interface that turns motor imagery into commands for a robotic hand: eight EEG channels, common spatial patterns with a linear classifier, and an Arduino driving the five servos of an InMoov i2 that I printed and assembled. Evaluation holds a whole run out of training, which is the scheme that matches real use.</p>
+    <div class="figures">
+      <div class="fig"><span class="v">14</span><span class="k" data-el="συμμετέχοντες">participants</span></div>
+      <div class="fig"><span class="v">4,480</span><span class="k" data-el="δοκιμές">trials</span></div>
+      <div class="fig"><span class="v">72.5%</span><span class="k" data-el="σε run εκτός εκπαίδευσης">on a held-out run</span></div>
+    </div>
+    <div class="cta">
+      <a class="btn solid" href="/eeg-bci-hand/" data-el="Δες τη διπλωματική &#8594;">Open the thesis site &#8594;</a>
+      <a class="btn" href="https://github.com/PanosLevedogiannis/eeg-bci-hand" rel="noopener" target="_blank" data-el="Ο κώδικας">The code</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 data-el="Έργα">Projects</h2>
+
+  <div class="entry">
+    <div class="when" data-el="Οκτ 2025 – σήμερα">Oct 2025 – present</div>
+    <div class="what">
+      <h3 data-el="Ταξινόμηση βιοϊατρικών σημάτων (ΗΕΓ/ΗΚΓ)">Biomedical signal classification (EEG/ECG)</h3>
+      <p data-el="Αυτόματη διάκριση φυσιολογικών από παθολογικά σήματα: επιληπτικές κρίσεις στο ΗΕΓ και αρρυθμίες στο ΗΚΓ. Ψηφιακή επεξεργασία για την αφαίρεση των 50/60 Hz, ανάλυση με μετασχηματισμούς Fourier και κυματιδίων, και σύγκριση SVM και τυχαίων δασών με CNN και LSTM πάνω σε δεδομένα PhysioNet (CHB-MIT, MIT-BIH).">Telling normal signals from pathological ones: epileptic seizures in EEG and arrhythmia in ECG. Digital signal processing to remove the 50/60 Hz mains, Fourier and wavelet transforms for analysis, and SVM and random forests compared against CNNs and LSTMs on PhysioNet data (CHB-MIT, MIT-BIH).</p>
+      <div class="links"><a href="https://github.com/PanosLevedogiannis/ECG-Classification" rel="noopener" target="_blank" data-el="Ο κώδικας">The code</a></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Οκτ 2024 – Φεβ 2025">Oct 2024 – Feb 2025</div>
+    <div class="what">
+      <h3 data-el="Σύστημα ανίχνευσης πτώσης">Fall detection system</h3>
+      <p data-el="Εφαρμογή σε Python που εκτιμά τη στάση του σώματος σε πραγματικό χρόνο με MoveNet και την κάμερα του υπολογιστή, με μηχανισμούς ειδοποίησης και ανάνηψης.">A Python application that estimates body pose in real time with MoveNet and the laptop camera, with alerting and recovery mechanisms.</p>
+      <div class="links"><a href="https://github.com/PanosLevedogiannis/Fall-detection" rel="noopener" target="_blank" data-el="Ο κώδικας">The code</a></div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Οκτ 2024 – Φεβ 2025">Oct 2024 – Feb 2025</div>
+    <div class="what">
+      <h3 data-el="Κρυπτογράφηση ροής A5/1 σε VHDL">A5/1 stream cipher in VHDL</h3>
+      <p data-el="Υλοποίηση του αλγορίθμου A5/1 σε VHDL, για σχεδίαση και αποτίμηση συστήματος ασφαλούς επικοινωνίας.">An implementation of the A5/1 algorithm in VHDL, for the design and evaluation of a secure communication system.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Φεβ 2024 – Ιούν 2024">Feb 2024 – Jun 2024</div>
+    <div class="what">
+      <h3 data-el="Σχεδίαση ενισχυτών χαμηλού θορύβου">Low-noise amplifier design</h3>
+      <p data-el="Σχεδίαση και ανάλυση ενισχυτών χαμηλού θορύβου σε Cadence, με έμφαση στην αποτίμηση και τη βελτιστοποίηση της απόδοσης.">Design and analysis of low-noise amplifiers in Cadence, focused on evaluating and optimising performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 data-el="Εμπειρία">Experience</h2>
+
+  <div class="entry">
+    <div class="when" data-el="Μάρ 2024 – σήμερα">Mar 2024 – present</div>
+    <div class="what">
+      <h3 data-el="Συνιδρυτής και μηχανικός λογισμικού">Co-founder and software engineer</h3>
+      <div class="where">Psaxno-Douleia-Nafplio</div>
+      <p data-el="Συνδημιούργησα πλατφόρμα εύρεσης εργασίας στο Ναύπλιο, με σχέδιο επέκτασης σε όλη την Ελλάδα. Έφερε έσοδα μέσα στους πρώτους μήνες λειτουργίας και έχει φέρει σε επαφή επιχειρήσεις και υποψηφίους σε πάνω από 100 αγγελίες.">Co-created a job-finding platform in Nafplio, with plans to expand across Greece. It generated revenue within its first months of operation and has connected companies with candidates across more than 100 listings.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Απρ – Μάι 2025">Apr – May 2025</div>
+    <div class="what">
+      <h3 data-el="Συμμετοχή στο BCI &amp; Neurotechnology Spring School">BCI &amp; Neurotechnology Spring School</h3>
+      <div class="where">g.tec medical engineering</div>
+      <p data-el="Πρόγραμμα 140 ωρών με 140 διαλέξεις για διεπαφές εγκεφάλου&#8211;υπολογιστή, επεξεργασία σήματος ΗΕΓ, νευροαπεικόνιση και νευροαποκατάσταση, μαζί με συμμετέχοντες από 140 χώρες.">A 140-hour programme of 140 lectures on brain&#8211;computer interfaces, EEG signal processing, neural imaging and neurorehabilitation, alongside participants from 140 countries.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when">2022 · 2023 · 2024</div>
+    <div class="what">
+      <h3 data-el="Εθελοντισμός στα Career Days και Engineering Days">Volunteer, Career Days and Engineering Days</h3>
+      <div class="where" data-el="Πανεπιστήμιο Πελοποννήσου">University of the Peloponnese</div>
+      <p data-el="Υποστήριξη της οργάνωσης των διήμερων εκδηλώσεων σταδιοδρομίας και μηχανικής του τμήματος, τρεις συνεχόμενες χρονιές.">Supported the organisation of the department's two-day career and engineering events, three years running.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 data-el="Σπουδές">Education</h2>
+  <div class="entry">
+    <div class="when" data-el="Σεπ 2020 – σήμερα">Sep 2020 – present</div>
+    <div class="what">
+      <h3 data-el="Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών">Electrical and Computer Engineering</h3>
+      <div class="where" data-el="Πανεπιστήμιο Πελοποννήσου, Πάτρα">University of the Peloponnese, Patras</div>
+      <dl class="detail">
+        <dt data-el="Κατεύθυνση">Specialisation</dt>
+        <dd data-el="Μηχανική υλικού &#8212; VLSI, ψηφιακή σχεδίαση, ενσωματωμένα συστήματα">Hardware engineering &#8212; VLSI, digital design, embedded systems</dd>
+        <dt data-el="Μαθήματα">Coursework</dt>
+        <dd data-el="Κυκλώματα και συστήματα για κρυπτογραφία και ασφάλεια, γλώσσες περιγραφής υλικού, σχεδίαση ψηφιακών συστημάτων σε FPGA, κυβερνοφυσικά συστήματα, προηγμένα συστήματα μικροϋπολογιστών, σήματα και συστήματα, μηχανική μάθηση">Circuits and systems for cryptography and security, hardware description languages, digital systems design on FPGAs, cyber-physical systems, advanced microcomputer systems, signals and systems, machine learning</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span data-el="Παναγιώτης Λεβεντογιάννης · Πάτρα, Ελλάδα">Panagiotis Leventogiannis · Patras, Greece</span>
+</footer>
+
+<script>
+"use strict";
+/* Greek lives in data-el on each element; English is the markup. An element
+   without data-el simply stays English, and check.py lists any that should
+   have one. */
+(function(){
+  const KEY = "pl-lang";
+  const btn = document.getElementById("lang");
+  const nodes = Array.prototype.slice.call(document.querySelectorAll("[data-el]"));
+  const en = nodes.map(function(n){ return n.innerHTML; });
+  let cur = "en";
+  try { const v = localStorage.getItem(KEY); if (v === "el" || v === "en") cur = v; } catch (e) {}
+
+  function paint(){
+    nodes.forEach(function(n, i){
+      n.innerHTML = cur === "el" ? n.getAttribute("data-el") : en[i];
+    });
+    document.documentElement.lang = cur;
+    btn.textContent = cur === "el" ? "EN" : "ΕΛ";
+    btn.setAttribute("lang", cur === "el" ? "en" : "el");
+    btn.title = cur === "el" ? "Read this page in English" : "Διάβασε τη σελίδα στα ελληνικά";
+    btn.setAttribute("aria-label", btn.title);
+  }
+  btn.addEventListener("click", function(){
+    cur = cur === "el" ? "en" : "el";
+    try { localStorage.setItem(KEY, cur); } catch (e) {}
+    paint();
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
