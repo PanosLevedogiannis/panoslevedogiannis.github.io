@@ -104,6 +104,10 @@ h2{font-family:var(--f-ui); font-size:11.5px; font-weight:600; letter-spacing:.1
 .what .links a{font-family:var(--f-ui); font-size:13.5px; font-weight:500; color:var(--accent);
   text-decoration:none; border-bottom:1px solid transparent}
 .what .links a:hover{border-bottom-color:currentColor}
+.soon{display:inline-block; margin-inline-start:9px; vertical-align:2px;
+  font-family:var(--f-mono); font-size:10px; font-weight:500; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+  border:1px solid var(--accent); border-radius:3px; padding:1px 6px}
 @media(max-width:620px){
   .entry{grid-template-columns:1fr; gap:2px}
   .when{padding-top:0; order:-1}
@@ -224,6 +228,15 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
 
 <section class="wrap">
   <h2 data-el="Εμπειρία">Experience</h2>
+
+  <div class="entry">
+    <div class="when" data-el="Οκτ – Δεκ 2026">Oct – Dec 2026</div>
+    <div class="what">
+      <h3 data-el='Πρακτική άσκηση<span class="soon">προσεχώς</span>'>Internship<span class="soon">upcoming</span></h3>
+      <div class="where">g.tec medical engineering</div>
+      <p data-el="Τρεις μήνες στην g.tec, στον χώρο των διεπαφών εγκεφάλου&#8211;υπολογιστή. Είχα παρακολουθήσει νωρίτερα το Spring School τους.">Three months with g.tec, in brain&#8211;computer interfaces. I took part in their Spring School earlier.</p>
+    </div>
+  </div>
 
   <div class="entry">
     <div class="when" data-el="Μάρ 2024 – σήμερα">Mar 2024 – present</div>
