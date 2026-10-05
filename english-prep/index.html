@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>English Prep</title>
-<meta name="description" content="Four weeks of TOEFL and IELTS prep: foundation lessons, a daily plan, timed writing and speaking practice with corrections, vocabulary review and progress tracking.">
-<meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
+<meta name="description" content="Four weeks of TOEFL and IELTS prep: foundation lessons, a daily plan, 395 exam words with Greek meanings, timed writing, reading and speaking practice with corrections, and progress tracking.">
+<meta name="theme-color" content="#F6F3EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1422" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='20' width='56' height='28' rx='7' fill='%23FFE45C' transform='rotate(-7 32 34)'/%3E%3Cpath d='M18 34l9 9 20-22' fill='none' stroke='%231B2333' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap">
 <style>
 :root{
-  --bg:#F3F5F8; --sheet:#FFFFFF; --ink:#1B2333; --ink2:#465166; --muted:#636E83; --rule:#DFE4EC; --rule2:#C3CCDA;
+  --bg:#F6F3EE; --sheet:#FFFFFF; --ink:#1B2333; --ink2:#465166; --muted:#636E83; --rule:#E2E5EB; --rule2:#C3CCDA;
   --accent:#2142C8; --accent-ink:#FFFFFF; --accent-soft:#E8EDFC;
   --hi:#FFE45C; --hi-ink:#1B2333;
   --red:#C02B36; --good:#12753C; --warn:#B45309;
   --s-reading:#2a78d6; --s-listening:#eb6834; --s-writing:#1baf7a; --s-vocab:#eda100; --s-speaking:#e87ba4; --s-mock:#008300;
   --chart-surface:#FFFFFF; --grid:#E7EAF0; --axis:#C3CCDA;
+  --glow1:rgba(255,168,120,.30); --glow2:rgba(130,140,255,.24); --glow3:rgba(80,196,160,.20); --dots:rgba(27,35,51,.07);
+  --hero1:#FFF1E2; --hero2:#FCE5EF; --hero3:#E2E8FF; --hero-line:rgba(27,35,51,.07);
+  --cell:rgba(27,35,51,.12); --ticket:rgba(255,255,255,.7);
+  --sky-bld:rgba(27,35,51,.10); --sky-win:rgba(255,255,255,.75); --sun:rgba(255,166,77,.45);
+  --shadow:0 1px 2px rgba(20,28,45,.05),0 8px 26px rgba(20,28,45,.07);
+  --bar:rgba(255,253,249,.93);
   --font-ui:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display:"Bricolage Grotesque", "Atkinson Hyperlegible", system-ui, sans-serif;
   color-scheme:light;
@@ -31,12 +37,23 @@
     --red:#FF7A7A; --good:#4CD38A; --warn:#F5B94A;
     --s-reading:#3987e5; --s-listening:#d95926; --s-writing:#199e70; --s-vocab:#c98500; --s-speaking:#d55181; --s-mock:#008300;
     --chart-surface:#161E31; --grid:#222C44; --axis:#36435F;
+    --glow1:rgba(110,120,255,.20); --glow2:rgba(214,90,160,.12); --glow3:rgba(40,170,150,.13); --dots:rgba(255,255,255,.045);
+    --hero1:#1C2546; --hero2:#2A2450; --hero3:#13304A; --hero-line:rgba(255,255,255,.07);
+    --cell:rgba(255,255,255,.14); --ticket:rgba(14,20,34,.45);
+    --sky-bld:rgba(255,255,255,.075); --sky-win:rgba(255,214,102,.55); --sun:rgba(255,236,170,.28);
+    --shadow:0 1px 2px rgba(0,0,0,.35);
+    --bar:rgba(22,30,49,.94);
     color-scheme:dark;
   }
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font-ui);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+/* soft coloured light and a faint dot grid behind everything; Settings can switch it off */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(44rem 32rem at -6% -8%,var(--glow1),transparent 70%),radial-gradient(40rem 30rem at 106% 4%,var(--glow2),transparent 70%),
+    radial-gradient(48rem 34rem at 50% 108%,var(--glow3),transparent 70%),radial-gradient(var(--dots) 1px,transparent 1.5px) 0 0/22px 22px}
+html[data-bg="plain"] body::before{display:none}
 button,input,select,textarea{font:inherit;color:inherit}
 a{color:var(--accent)}
 p{margin:0 0 10px}
@@ -50,8 +67,34 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .brand{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand .name{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
 .brand .mark{width:24px;height:24px}
-h1.day{font-family:var(--font-display);font-weight:760;font-size:clamp(36px,10vw,54px);line-height:1;letter-spacing:-.03em;margin:22px 0 8px}
+h1.day{font-family:var(--font-display);font-weight:760;font-size:clamp(36px,10vw,54px);line-height:1;letter-spacing:-.03em;margin:6px 0 8px}
 .sub{margin:0;color:var(--ink2);font-size:17px}
+.hero{position:relative;overflow:hidden;margin-top:12px;padding:18px 20px 16px;border-radius:22px;border:1px solid var(--hero-line);
+  background:linear-gradient(135deg,var(--hero1) 0%,var(--hero2) 52%,var(--hero3) 100%);box-shadow:var(--shadow)}
+.hero>*{position:relative;z-index:1}
+.hero>.hero-top{position:static}
+.hero-top>*:not(.sky){position:relative;z-index:1}
+.greet{margin:0;font-weight:700;color:var(--ink2);font-size:16px}
+.sky{position:absolute;right:-2px;bottom:-1px;width:min(300px,64%);height:auto;z-index:0;pointer-events:none}
+@media (min-width:640px){
+  .hero>.hero-top{position:relative}
+  .hero-top .sky{right:-6px;bottom:-4px;height:calc(100% + 24px);width:auto;max-width:56%}
+}
+.sky .bld{fill:var(--sky-bld)}
+.sky .win{fill:var(--sky-win)}
+.sky .sun{fill:var(--sun)}
+.hero .cell{background:var(--cell)}
+.hero .cell.part{background:linear-gradient(to top,var(--ink2) 0 45%,var(--cell) 45%)}
+.hero .cell.full{background:var(--ink)}
+.hero .cell.miss{background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule2)}
+.hero .cell.today{outline-color:var(--ink)}
+.hero .cell.today:not(.full):not(.part){background:var(--hi)}
+.hero .ticket{background:var(--ticket)}
+.top.compact .hero{padding:12px 18px;border-radius:18px}
+.top.compact .hero-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px}
+.top.compact h1.day{font-size:26px;margin:0}
+.top.compact .sub{font-size:15px}
+@media (max-width:639px){.top.compact .sky{display:none}}
 .strip{display:grid;gap:clamp(6px,2.2vw,14px);margin:18px 0 12px;max-width:640px}
 .strip .wk{display:grid;gap:clamp(2px,.8vw,4px)}
 .cell{display:block;aspect-ratio:5/8;width:100%;min-width:0;padding:0;border:0;border-radius:3px;background:var(--rule);cursor:pointer}
@@ -69,7 +112,7 @@ button.ticket{border-style:dashed;cursor:pointer}
 button.ticket:hover{border-color:var(--ink2)}
 
 /* tabs */
-nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sheet);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sheet);background:var(--bar);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-top:1px solid var(--rule);padding-bottom:env(safe-area-inset-bottom)}
 .tabs-inner{display:flex;padding-top:4px;padding-bottom:4px}
 .tab{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px 6px;border:0;background:none;color:var(--muted);font-weight:700;font-size:12px;cursor:pointer;border-radius:10px;position:relative}
 .tab svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:1}
@@ -81,7 +124,7 @@ nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--shee
 #main{padding-bottom:calc(120px + env(safe-area-inset-bottom));min-height:60vh}
 main:focus{outline:none}
 @media (min-width:760px){
-  nav.tabs{position:sticky;top:0;bottom:auto;background:var(--bg);border-top:0;border-bottom:1px solid var(--rule);padding-bottom:0}
+  nav.tabs{position:sticky;top:0;bottom:auto;margin-top:10px;border-top:0;border-bottom:1px solid var(--rule);padding-bottom:0}
   .tabs-inner{gap:2px;padding-top:6px;padding-bottom:6px}
   .tab{flex:none;flex-direction:row;gap:8px;font-size:15px;padding:9px 12px}
   .tab svg{width:20px;height:20px}
@@ -98,7 +141,7 @@ h4{margin:0}
 .muted{color:var(--muted)}
 .small{font-size:14px}
 .hint{font-size:14px;color:var(--muted);margin:6px 0 0}
-.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:2px 16px}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:16px;padding:2px 16px;box-shadow:var(--shadow)}
 .sheet.pad{padding:16px}
 .dateline{margin:24px 0 0;color:var(--ink2);font-weight:700}
 .weekline{margin:0;color:var(--muted)}
@@ -158,12 +201,12 @@ h4{margin:0}
 .chip input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
 .checkrow{display:flex;align-items:center;gap:10px;margin-top:16px;font-weight:700;cursor:pointer}
 .seg{display:inline-flex;padding:3px;border-radius:12px;background:var(--accent-soft);gap:2px;margin:6px 0 4px}
-.seg button{border:0;background:transparent;padding:8px 16px;border-radius:9px;font-weight:700;color:var(--ink2);cursor:pointer;min-height:38px}
+.seg button{border:0;background:transparent;padding:8px 16px;border-radius:9px;font-weight:700;color:var(--ink2);cursor:pointer;min-height:38px;white-space:nowrap}
 .seg button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);box-shadow:0 0 0 1px var(--rule2)}
 
 /* today stats */
 .meter{height:10px;border-radius:5px;background:var(--rule);overflow:hidden;margin:8px 0 4px}
-.meter i{display:block;height:100%;background:var(--accent);border-radius:0 5px 5px 0}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--s-writing));border-radius:0 5px 5px 0}
 .todaystats{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:10px;color:var(--ink2);font-size:15px}
 .todaystats b{color:var(--ink)}
 .bigline{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.01em}
@@ -224,6 +267,7 @@ details.part[open] .wk-count svg{transform:rotate(180deg)}
 .feedback.ok{color:var(--good)}
 .feedback.no{color:var(--red)}
 .feedback .fix{color:var(--ink);font-weight:400}
+.feedback .ans{color:var(--ink);font-weight:700;font-size:1.08em}
 .stage{padding:20px}
 .slabel{font-size:14px;color:var(--muted);font-weight:700}
 .phase{font-weight:700;color:var(--ink2);display:flex;align-items:center;gap:8px;margin:4px 0 0}
@@ -262,7 +306,7 @@ details.part[open] .wk-count svg{transform:rotate(180deg)}
 /* progress */
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 0}
 @media (min-width:560px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.stat{padding:12px 14px;border:1px solid var(--rule);border-radius:12px;background:var(--sheet)}
+.stat{padding:12px 14px;border:1px solid var(--rule);border-radius:14px;background:var(--sheet);box-shadow:var(--shadow)}
 .stat .v{font-family:var(--font-display);font-size:28px;font-weight:720;line-height:1.1;letter-spacing:-.01em}
 .stat .v small{font-size:16px;font-weight:600;color:var(--ink2);letter-spacing:0}
 .stat .l{font-size:14px;color:var(--muted)}
@@ -394,6 +438,72 @@ ins{color:var(--good);text-decoration:none;font-weight:700}
 @media (max-width:560px){.fbrows{grid-template-columns:minmax(0,1fr) auto}.fbrows .fc{grid-column:1/-1;margin:-4px 0 6px}}
 .sub4{font-size:16px;font-weight:700;margin:18px 0 0}
 
+/* today */
+.dayhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700;background:var(--accent-soft);color:var(--ink2);white-space:nowrap}
+.pill.ok{background:var(--good);color:var(--sheet)}
+.daydone{display:flex;gap:12px;align-items:flex-start;margin-top:12px}
+.daydone svg{width:28px;height:28px;flex:none;padding:5px;border-radius:50%;background:var(--good);color:var(--sheet)}
+.daydone p{margin:2px 0 0}
+
+/* words hub */
+.wgrid{display:grid;gap:12px;margin-top:14px}
+@media (min-width:640px){.wgrid{grid-template-columns:1fr 1fr}}
+.wcard{display:flex;flex-direction:column;align-items:flex-start}
+.wcard h3{font-family:var(--font-display);font-weight:700;font-size:20px;margin:10px 0 4px}
+.wcard p{margin:0;color:var(--ink2)}
+.wcard .actions{margin-top:auto;padding-top:12px}
+.wcard .seg{margin-top:12px;max-width:100%}
+.wcard .seg button{padding:8px 11px}
+.wicon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;color:var(--c);background:var(--accent-soft);background:color-mix(in srgb,var(--c) 16%,transparent)}
+.wicon svg{width:24px;height:24px}
+.setrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:start;padding:14px 0;border-top:1px solid var(--rule)}
+.setrow:first-child{border-top:0}
+.setrow h4{font-size:17px}
+.setrow p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.setrow>.btn{margin-top:2px}
+.setprog{display:flex;align-items:center;gap:10px;margin-top:8px}
+.pbar{display:block;flex:1 1 auto;max-width:220px;min-width:48px;height:7px;border-radius:4px;background:var(--rule);overflow:hidden}
+.setprog .small{white-space:nowrap}
+.pbar i{display:block;height:100%;background:var(--s-vocab);border-radius:0 4px 4px 0}
+.setlist{grid-column:1/-1;margin-top:6px}
+.setwords{list-style:none;margin:8px 0 4px;padding:0;columns:2 230px;column-gap:28px;font-size:15px}
+.setwords li{break-inside:avoid;padding:3px 0;color:var(--ink2)}
+.setwords li b{color:var(--ink)}
+.setwords li.got b::before{content:"\2713\00a0";color:var(--good)}
+details.addword{margin-top:16px}
+details.addword summary{cursor:pointer;font-weight:700;color:var(--accent);padding:6px 0;list-style-position:inside}
+.flash.learn{padding-top:20px}
+.flash .lset{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.flash .def{color:var(--ink2);margin:6px auto 0;max-width:46ch}
+.flash .ex b{font-style:normal;background:var(--hi);color:var(--hi-ink);border-radius:3px 6px 3px 6px;padding:0 .2em}
+.flash .meaning{font-weight:700}
+.iconbtn.big{width:48px;height:48px;margin:4px auto 0}
+.iconbtn.big svg{width:26px;height:26px}
+.typein{max-width:380px;margin:16px auto 0;text-align:center;font-size:20px}
+.feedback.center{justify-content:center;text-align:left}
+.donecard{text-align:left;margin-top:14px}
+.donecard h2{margin:10px 0 6px}
+
+/* complete the words */
+.cwtext{font-size:18px;line-height:2.25;margin-top:6px}
+.cw{white-space:nowrap}
+.cwi{font:700 17px/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;padding:1px 4px;margin:0 2px 0 1px;border:0;border-bottom:2px solid var(--ink2);border-radius:6px 6px 0 0;background:var(--accent-soft);color:var(--ink);vertical-align:baseline}
+.cwi:focus{outline:none;border-bottom-color:var(--accent);box-shadow:0 2px 0 var(--accent)}
+.cwi.right{border-bottom-color:var(--good);color:var(--good)}
+.cwi.wrong{border-bottom-color:var(--red);color:var(--red);text-decoration:line-through}
+.cwfix{font-weight:700;color:var(--good);margin:0 4px 0 2px;font-size:16px}
+
+/* corrections: not a mistake, own dictionary */
+.okbtn{display:inline-block;margin-top:6px;font-size:13px;color:var(--muted)}
+.okbtn:hover{color:var(--accent)}
+.dictlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dchip{display:inline-flex;align-items:center;gap:2px;padding:3px 4px 3px 11px;border:1.5px solid var(--rule2);border-radius:999px;font-size:14px;font-weight:700;background:var(--sheet)}
+.dchip button{display:inline-grid;place-items:center;width:26px;height:26px;border:0;border-radius:50%;background:none;color:var(--muted);cursor:pointer}
+.dchip button:hover{background:var(--accent-soft);color:var(--ink)}
+.dchip svg{width:15px;height:15px}
+@media (max-width:420px){.seg button{padding:8px 11px}}
+
 /* dialog and toast */
 dialog{border:0;padding:0;border-radius:16px;width:min(560px,calc(100% - 24px));max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);background:var(--sheet);color:var(--ink);box-shadow:0 24px 70px rgba(8,12,24,.4)}
 dialog::backdrop{background:rgba(8,12,24,.55)}
@@ -403,7 +513,7 @@ dialog::backdrop{background:rgba(8,12,24,.55)}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media (min-width:760px){#toast{bottom:28px}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-@media (forced-colors: active){.cell.full,.cell.part,.check:checked{forced-color-adjust:none;background:CanvasText}.hl{border:1px solid CanvasText}}
+@media (forced-colors: active){body::before{display:none}.cell.full,.cell.part,.check:checked{forced-color-adjust:none;background:CanvasText}.hl{border:1px solid CanvasText}}
 </style>
 </head>
 <body>
@@ -447,6 +557,7 @@ const PARTS = [
 ];
 
 const HABITS = [
+  { id: 'learn', t: 'Learn new words', s: 'vocab', m: 10, go: 'words:learn' },
   { id: 'words', t: 'Review your due words', s: 'vocab', m: 10, go: 'words:review' },
   { id: 'shadow', t: 'Shadowing: play a podcast or talk and repeat right after the speaker', s: 'listening', m: 15 },
   { id: 'read', t: 'Read something in English: a paper, an article, the news', s: 'reading', m: 20 },
@@ -707,7 +818,7 @@ const PLAN = [
     { t: 'Book your IELTS Academic date', s: null, m: 0, go: 'url:' + LINKS.ieltsBook },
     { t: 'Lesson 1: Sentence basics', s: 'writing', m: 30, go: 'lesson:L1' },
     { t: 'Lesson 1 writing: 6 to 8 sentences about your work', s: 'writing', m: 15, go: 'w:g-L1' },
-    { t: 'Add 10 words you looked up recently', s: 'vocab', m: 10, go: 'words:add' }
+    { t: 'Learn your first new words, with Greek meanings', s: 'vocab', m: 10, go: 'words:learn' }
   ]},
   { title: 'Tenses', tasks: [
     { t: 'Lesson 2: The tenses you need', s: 'writing', m: 30, go: 'lesson:L2' },
@@ -722,7 +833,8 @@ const PLAN = [
   { title: 'Better words', tasks: [
     { t: 'Lesson 4: Words that score higher', s: 'vocab', m: 30, go: 'lesson:L4' },
     { t: 'Lesson 4 writing: make a paragraph formal', s: 'writing', m: 15, go: 'w:g-L4' },
-    { t: 'TOEFL Build a Sentence drill', s: 'writing', m: 10, go: 'w:build' }
+    { t: 'TOEFL Build a Sentence drill', s: 'writing', m: 10, go: 'w:build' },
+    { t: 'TOEFL Complete the Words: two short texts', s: 'reading', m: 10, go: 'r:cw' }
   ]},
   { title: 'Linking words', tasks: [
     { t: 'Lesson 5: Linking words', s: 'writing', m: 30, go: 'lesson:L5' },
@@ -763,7 +875,8 @@ const PLAN = [
   { title: 'TOEFL writing and speaking', tasks: [
     { t: 'TOEFL Write an Email, timed', s: 'writing', m: 10, go: 'w:email' },
     { t: 'TOEFL Academic Discussion, timed', s: 'writing', m: 15, go: 'w:disc' },
-    { t: 'TOEFL Take an Interview, recorded', s: 'speaking', m: 10, go: 's:interview' }
+    { t: 'TOEFL Take an Interview, recorded', s: 'speaking', m: 10, go: 's:interview' },
+    { t: 'TOEFL Complete the Words: two short texts', s: 'reading', m: 10, go: 'r:cw' }
   ]},
   { title: 'TOEFL full test', tasks: [
     { t: 'Full official TOEFL practice test, timed, in one sitting', s: 'mock', m: 120, go: 'url:' + LINKS.toeflPrep },
@@ -786,7 +899,8 @@ const PLAN = [
   { title: 'Review the first tests', tasks: [
     { t: 'Compare your scores with your targets and pick your two weakest sections', s: 'mock', m: 15, go: 'tab:progress' },
     { t: 'TOEFL Listen and Repeat', s: 'speaking', m: 10, go: 's:repeat' },
-    { t: 'TOEFL Build a Sentence drill', s: 'writing', m: 10, go: 'w:build' }
+    { t: 'TOEFL Build a Sentence drill', s: 'writing', m: 10, go: 'w:build' },
+    { t: 'TOEFL Complete the Words: two short texts', s: 'reading', m: 10, go: 'r:cw' }
   ]},
   // Chapter 3: Timed practice and mocks (days 18 to 28)
   { title: 'Essay and rewrite', tasks: [
@@ -797,7 +911,8 @@ const PLAN = [
   { title: 'TOEFL writing and speaking', tasks: [
     { t: 'TOEFL Write an Email, timed', s: 'writing', m: 10, go: 'w:email' },
     { t: 'TOEFL Academic Discussion, timed', s: 'writing', m: 15, go: 'w:disc' },
-    { t: 'TOEFL Listen and Repeat', s: 'speaking', m: 10, go: 's:repeat' }
+    { t: 'TOEFL Listen and Repeat', s: 'speaking', m: 10, go: 's:repeat' },
+    { t: 'TOEFL Complete the Words: two short texts', s: 'reading', m: 10, go: 'r:cw' }
   ]},
   { title: 'IELTS full mock', tasks: [
     { t: 'IELTS Listening and Reading practice tests, timed, back to back', s: 'mock', m: 100, go: 'url:' + LINKS.ieltsPrep },
@@ -824,7 +939,8 @@ const PLAN = [
   ]},
   { title: 'Light practice', tasks: [
     { t: 'IELTS Writing Task 2, timed', s: 'writing', m: 40, go: 'w:ielts2' },
-    { t: 'TOEFL Take an Interview, recorded', s: 'speaking', m: 10, go: 's:interview' }
+    { t: 'TOEFL Take an Interview, recorded', s: 'speaking', m: 10, go: 's:interview' },
+    { t: 'TOEFL Complete the Words: two short texts', s: 'reading', m: 10, go: 'r:cw' }
   ]},
   { title: 'Speaking warm-up', tasks: [
     { t: 'IELTS Speaking Part 1, recorded', s: 'speaking', m: 5, go: 's:p1' },
@@ -1046,6 +1162,460 @@ const REPEATS = [
     'The library also offers free workshops on research skills and academic writing every Wednesday afternoon.'
   ] }
 ];
+
+/* ---------- Word bank ----------
+   Sets in learning order. Each word: [word, Greek meaning, English definition, example].
+   Picked from the Academic Word List (Coxhead), the topics IELTS Writing Task 2 asks about most
+   (education, technology, environment, health, society, work), IELTS Task 1 chart language,
+   2026 TOEFL campus and lecture contexts, and common mistakes of Greek speakers.
+   "(US: ...)" or "(UK: ...)" in a definition is also accepted when you type the word. */
+const WORDSETS = [
+  { id: 'acad1', name: 'Academic words 1', about: 'The most frequent words in university texts (Academic Word List, part 1). You meet them in every reading passage and lecture.', words: [
+    ["analyse", "αναλύω", "to examine something carefully to understand it (US: analyze)", "We analysed the data from twenty participants."],
+    ["approach", "προσέγγιση, τρόπος αντιμετώπισης", "a way of dealing with a problem", "This approach works well with small groups."],
+    ["assess", "αξιολογώ, εκτιμώ", "to judge the quality, size or value of something", "Teachers assess students in many different ways."],
+    ["assume", "υποθέτω, θεωρώ δεδομένο", "to think that something is true without proof", "Many people assume that technology always saves time."],
+    ["available", "διαθέσιμος", "that you can get, use or buy", "Free practice tests are available online."],
+    ["benefit", "όφελος, ωφελώ", "an advantage or a good effect; to help someone", "Regular exercise has many benefits."],
+    ["concept", "έννοια", "an idea or a principle", "The concept of working from home is not new."],
+    ["consist of", "αποτελούμαι από", "to be made of several parts", "The test consists of four sections."],
+    ["constitute", "αποτελώ, συνιστώ", "to form or make up something (formal)", "Women constitute almost half of the workforce."],
+    ["context", "πλαίσιο, συμφραζόμενα", "the situation, or the words around something, that help you understand it", "You can often guess a word from its context."],
+    ["derive", "προέρχομαι, αντλώ", "to come from, or to get something from, a source", "Many English words derive from Greek."],
+    ["establish", "ιδρύω, καθιερώνω", "to start something that will last; to prove a fact", "The university was established in 1837."],
+    ["estimate", "εκτιμώ, υπολογίζω περίπου", "to guess a number or size using the information you have", "Experts estimate that the city will double in size."],
+    ["evident", "εμφανής, προφανής", "clear and easy to see", "It is evident that the plan did not work."],
+    ["factor", "παράγοντας", "one of the things that cause or influence a result", "Cost is a key factor in choosing a university."],
+    ["identify", "εντοπίζω, αναγνωρίζω", "to find or recognise something", "The study identified three main causes."],
+    ["indicate", "δείχνω, υποδεικνύω", "to show that something is true or likely", "The results indicate a link between sleep and memory."],
+    ["interpret", "ερμηνεύω", "to explain or understand the meaning of something", "You must interpret the chart correctly."],
+    ["involve", "περιλαμβάνω, συνεπάγομαι", "to include something as a necessary part", "The job involves a lot of travel."],
+    ["issue", "ζήτημα", "an important problem that people discuss", "Housing is a serious issue in big cities."],
+    ["occur", "συμβαίνω", "to happen (formal)", "Most accidents occur at home."],
+    ["principle", "αρχή (κανόνας)", "a basic rule or belief", "The design follows one simple principle."],
+    ["require", "απαιτώ, χρειάζομαι", "to need something; to make something necessary", "The course requires a good level of English."],
+    ["significant", "σημαντικός, αξιοσημείωτος", "large or important enough to notice", "There was a significant increase in sales."],
+    ["vary", "ποικίλλω, διαφέρω", "to be different in different situations", "Prices vary from city to city."]
+  ]},
+  { id: 'link', name: 'Linking words', about: 'The words that hold an essay together. Examiners look for them, and TOEFL Complete the Words often hides them.', words: [
+    ["however", "ωστόσο, όμως", "used to add a contrast", "The plan is cheap. However, it is slow."],
+    ["moreover", "επιπλέον", "used to add another point (formal)", "The flat is cheap. Moreover, it is close to the station."],
+    ["furthermore", "επιπροσθέτως", "used to add a further point (formal)", "Furthermore, online courses are often cheaper."],
+    ["in addition", "επιπλέον, επίσης", "also; as an extra point", "In addition, the city has excellent public transport."],
+    ["therefore", "επομένως, γι' αυτό", "for that reason", "The road was closed. Therefore, we took the train."],
+    ["as a result", "ως αποτέλεσμα", "because of this", "Prices rose sharply. As a result, sales fell."],
+    ["consequently", "κατά συνέπεια", "as a result (formal)", "He missed the deadline and consequently lost marks."],
+    ["for instance", "για παράδειγμα", "for example", "Some jobs, for instance nursing, cannot be done from home."],
+    ["such as", "όπως", "used before examples", "Skills such as teamwork are hard to measure."],
+    ["in contrast", "αντίθετα", "used to show a clear difference", "Sales rose in Asia. In contrast, they fell in Europe."],
+    ["on the other hand", "από την άλλη πλευρά", "used to give the opposite side of an argument", "Cars are convenient. On the other hand, they pollute the air."],
+    ["although", "αν και, παρόλο που", "despite the fact that (followed by a full clause)", "Although it was raining, we went out."],
+    ["despite", "παρά", "without being stopped by something (followed by a noun or -ing)", "Despite the rain, we went out."],
+    ["whereas", "ενώ (σε αντίθεση)", "used to compare two different facts", "My brother likes maths, whereas I prefer languages."],
+    ["nevertheless", "παρ' όλα αυτά", "despite what has just been said", "The task was hard. Nevertheless, she finished it on time."],
+    ["in particular", "ιδιαίτερα, ειδικότερα", "especially", "Young people, in particular, use social media every day."],
+    ["to some extent", "ως έναν βαθμό", "partly, but not completely", "I agree with this view to some extent."],
+    ["on balance", "συνολικά, αν ζυγίσω τα υπέρ και τα κατά", "after thinking about all the facts", "On balance, the advantages outweigh the disadvantages."],
+    ["in conclusion", "συμπερασματικά", "used to start the last paragraph of an essay", "In conclusion, both governments and individuals must act."],
+    ["due to", "λόγω, εξαιτίας", "because of (followed by a noun)", "The flight was delayed due to bad weather."],
+    ["as long as", "αρκεί να, εφόσον", "only if", "You can borrow my laptop as long as you return it today."],
+    ["unless", "εκτός αν", "except if", "You will not improve unless you practise every day."],
+    ["in terms of", "όσον αφορά", "when you talk about one particular part of something", "In terms of cost, the bus is the best option."],
+    ["similarly", "παρομοίως", "in a similar way", "Similarly, many students prefer to study at night."],
+    ["it could be argued that", "θα μπορούσε να υποστηριχθεί ότι", "a formal way to introduce an opinion or an argument", "It could be argued that exams test memory, not ability."]
+  ]},
+  { id: 'trap', name: 'Traps for Greek speakers', about: 'False friends and mistakes Greek speakers often make, like sympathetic, eventually and “I am agree”.', words: [
+    ["sympathetic", "συμπονετικός, με κατανόηση (όχι «συμπαθητικός»)", "showing that you understand someone's problems; “συμπαθητικός” is likeable or nice", "My manager was very sympathetic when my flight was cancelled."],
+    ["eventually", "τελικά, στο τέλος (όχι «ενδεχομένως»)", "in the end, after a long time; “ενδεχομένως” is possibly", "After three attempts, he eventually passed the test."],
+    ["actually", "στην πραγματικότητα (όχι «τώρα»)", "in fact; used to correct something or add a surprise", "I thought the exam was in May, but it is actually in June."],
+    ["currently", "αυτή την περίοδο, προς το παρόν", "at the present time", "I am currently doing a traineeship in Austria."],
+    ["experiment", "πείραμα (όχι «εμπειρία»)", "a scientific test; “εμπειρία” is experience", "We ran the experiment with ten volunteers."],
+    ["experience", "εμπειρία", "knowledge or skill you get from doing something", "The job requires experience in signal processing."],
+    ["professor", "καθηγητής πανεπιστημίου", "a senior university teacher only; a school teacher is a “teacher”", "My professor wrote me a recommendation letter."],
+    ["degree", "πτυχίο, δίπλωμα πανεπιστημίου", "a university qualification; for a university, say “degree”, not “diploma”", "She has a degree in electrical engineering."],
+    ["internship", "πρακτική άσκηση", "a period of work to gain experience; not “practice”", "The internship at the lab lasts six months."],
+    ["course", "μάθημα (στο πανεπιστήμιο)", "a set of classes on one subject; “lesson” is mostly for school or private classes", "I took a course in machine learning last year."],
+    ["agenda", "θέματα μιας σύσκεψης (όχι το σημειωματάριο)", "a list of things to discuss at a meeting; a notebook for dates is a “diary” or “planner”", "The first item on the agenda is the budget."],
+    ["policy", "πολιτική (μέτρα, κανόνες)", "a plan or set of rules made by a government or an organisation", "The new policy reduces plastic waste."],
+    ["politics", "πολιτική (κόμματα, εξουσία)", "activities related to government and political parties", "Many young people are not interested in politics."],
+    ["economical", "οικονομικός (που κάνει οικονομία)", "using little money or fuel; “economic” means related to the economy", "Small cars are more economical."],
+    ["sensible", "λογικός, συνετός (όχι «ευαίσθητος»)", "reasonable and practical; “ευαίσθητος” is sensitive", "Saving a little money every month is a sensible idea."],
+    ["ignore", "αγνοώ επίτηδες, δεν δίνω σημασία", "to pay no attention to something on purpose; it does not mean “not know”", "He ignored my advice and failed the test."],
+    ["agony", "φρικτός πόνος (όχι «αγωνία»)", "very great pain; “αγωνία” is anxiety or suspense", "He was in agony after he broke his leg."],
+    ["physician", "γιατρός (όχι «φυσικός»)", "a medical doctor; “φυσικός” is a physicist", "You should see a physician if the pain continues."],
+    ["national", "εθνικός", "related to a whole nation; “ethnic” means related to a cultural group", "The national team won the match."],
+    ["imagination", "φαντασία", "the ability to create ideas or pictures in your mind; “fantasy” is a story or dream that is not real", "Good engineers need imagination as well as maths."],
+    ["discuss", "συζητώ (κάτι)", "to talk about something; never “discuss about”", "We discussed the results with the team."],
+    ["explain", "εξηγώ", "to make something clear: explain something to someone; never “explain me”", "Could you explain the rules to me?"],
+    ["agree", "συμφωνώ", "to have the same opinion; say “I agree”, never “I am agree”", "I completely agree with this view."],
+    ["take a photo", "βγάζω φωτογραφία", "say “take” a photo, not “make” a photo", "We took a photo in front of the museum."],
+    ["campsite", "κάμπινγκ (ο χώρος)", "a place where people stay in tents; “camping” is the activity", "We stayed at a campsite near the beach."]
+  ]},
+  { id: 'chart', name: 'Charts and numbers', about: 'Verbs, adjectives and phrases for describing data in IELTS Writing Task 1.', words: [
+    ["rise", "αυξάνομαι, άνοδος", "to go up (rise, rose, risen); also a noun", "The number of visitors rose to two million."],
+    ["decline", "μειώνομαι, πτώση", "to become smaller or fewer; also a noun", "Sales declined steadily after 2015."],
+    ["fluctuate", "παρουσιάζω διακυμάνσεις", "to go up and down", "Prices fluctuated throughout the year."],
+    ["peak", "κορυφώνομαι, κορυφή", "to reach the highest point; also a noun", "Energy use peaked in January."],
+    ["plummet", "πέφτω κατακόρυφα", "to fall very quickly", "Profits plummeted during the crisis."],
+    ["soar", "εκτοξεύομαι", "to rise very quickly to a high level", "House prices soared in the capital."],
+    ["level off", "σταθεροποιούμαι", "to stop rising or falling and stay at the same level", "Unemployment levelled off at around 8%."],
+    ["remain stable", "παραμένω σταθερός", "to stay at the same level", "The figure remained stable at 40%."],
+    ["steady", "σταθερός, ομαλός", "happening at an even, regular rate", "There was a steady increase in car use."],
+    ["sharp", "απότομος", "sudden and large", "There was a sharp drop in visitors in 2020."],
+    ["gradual", "σταδιακός", "happening slowly over a period of time", "The chart shows a gradual rise in temperatures."],
+    ["slight", "ελαφρύς, μικρός", "small", "There was a slight fall in prices."],
+    ["dramatic", "εντυπωσιακός, ραγδαίος", "very large and sudden", "Online sales saw a dramatic increase."],
+    ["proportion", "αναλογία, ποσοστό", "a part of a whole", "A large proportion of students work part-time."],
+    ["account for", "αντιστοιχώ σε, αποτελώ", "to form a particular part of a total", "Cars account for 60% of all journeys."],
+    ["respectively", "αντίστοιχα", "in the same order as the things you just mentioned", "The figures for men and women were 30% and 45% respectively."],
+    ["approximately", "περίπου", "close to an exact number", "Approximately 2,000 people took part."],
+    ["the majority of", "η πλειονότητα, οι περισσότεροι", "most of", "The majority of students live on campus."],
+    ["a minority of", "μια μειοψηφία", "a small part of a group", "Only a minority of people cycle to work."],
+    ["overtake", "ξεπερνώ", "to become greater than something else", "In 2018, online sales overtook shop sales."],
+    ["double", "διπλασιάζομαι", "to become twice as big", "The population doubled between 1950 and 2000."],
+    ["reach a low", "φτάνω στο χαμηλότερο σημείο", "to fall to the lowest point", "Visitor numbers reached a low of 300 in 2020."],
+    ["compared with", "σε σύγκριση με", "used to show a difference between two things", "Spending on food was low compared with housing."],
+    ["trend", "τάση", "the general direction of change", "The overall trend was upward."],
+    ["figure", "αριθμός, νούμερο", "a number, especially in official data", "The figure for Germany was much higher."]
+  ]},
+  { id: 'campus', name: 'Campus life and emails', about: 'University English for TOEFL emails, campus announcements and conversations.', words: [
+    ["deadline", "προθεσμία", "the latest time by which something must be done", "The deadline for the essay is Friday at noon."],
+    ["extension", "παράταση", "extra time to finish something", "Could I ask for a short extension on my report?"],
+    ["submit", "υποβάλλω, καταθέτω", "to give work or a form to someone officially", "Please submit your application online."],
+    ["enrol", "εγγράφομαι", "to officially join a course or a school (US: enroll)", "I enrolled in an evening Spanish class."],
+    ["assignment", "εργασία (για μάθημα)", "a piece of work given to students", "The assignment is worth 30% of the final grade."],
+    ["syllabus", "ύλη, πρόγραμμα μαθήματος", "the list of topics and reading for a course", "The reading list is on the syllabus."],
+    ["prerequisite", "προαπαιτούμενο", "something you need before you can do something else", "Statistics 1 is a prerequisite for this course."],
+    ["office hours", "ώρες γραφείου", "times when a professor is available to meet students", "Come to my office hours on Tuesday if you have questions."],
+    ["transcript", "αναλυτική βαθμολογία", "an official list of a student's courses and grades", "Please send us a copy of your transcript."],
+    ["advisor", "ακαδημαϊκός σύμβουλος", "a person who helps students plan their studies (UK: adviser)", "My advisor helped me choose my courses."],
+    ["dormitory", "φοιτητική εστία", "a building where students live, often called a “dorm” (UK: hall of residence)", "First-year students live in the dormitory."],
+    ["faculty", "διδακτικό προσωπικό, σχολή", "all the teachers of a university, or a group of departments", "The engineering faculty is on the north campus."],
+    ["semester", "εξάμηνο", "one of the two halves of a university year", "The spring semester starts in February."],
+    ["register", "εγγράφομαι, δηλώνω", "to put your name on an official list", "You must register for the exam by Monday."],
+    ["confirm", "επιβεβαιώνω", "to say that something is definitely true or arranged", "Could you confirm the time of the meeting?"],
+    ["reschedule", "αλλάζω ημερομηνία ή ώρα", "to change the time of a planned event", "Can we reschedule our meeting to Thursday?"],
+    ["refund", "επιστροφή χρημάτων", "money that is given back to you", "You can get a full refund within 14 days."],
+    ["eligible", "επιλέξιμος, δικαιούχος", "allowed to do or receive something", "Only full-time students are eligible for the grant."],
+    ["postpone", "αναβάλλω", "to move an event to a later time", "The lecture has been postponed until next week."],
+    ["regarding", "σχετικά με", "about (formal, common in emails)", "I am writing regarding the position you advertised."],
+    ["attach", "επισυνάπτω", "to add a file to an email", "I have attached my CV to this email."],
+    ["appreciate", "εκτιμώ, θα ήμουν ευγνώμων", "to be grateful for something: “I would appreciate it if you could…”", "I would appreciate it if you could reply by Friday."],
+    ["look forward to", "ανυπομονώ για", "to be happy about something that will happen (followed by a noun or -ing)", "I look forward to hearing from you."],
+    ["apologise for", "ζητώ συγγνώμη για", "to say sorry formally (US: apologize for)", "I apologise for the late reply."],
+    ["tuition fees", "δίδακτρα", "the money students pay for their teaching", "Tuition fees in the US can be very high."]
+  ]},
+  { id: 'speak', name: 'Speaking phrases', about: 'Natural phrases that give you time to think and make your answers longer in IELTS Speaking and the TOEFL interview.', words: [
+    ["let me think", "για να σκεφτώ", "a natural way to get a few seconds to think", "Let me think... I would say about twice a week."],
+    ["to be honest", "για να είμαι ειλικρινής", "used before you say what you really think", "To be honest, I don't watch much TV."],
+    ["I'd say that", "θα έλεγα ότι", "a softer way to give your opinion", "I'd say that most people prefer to live in cities."],
+    ["as far as I know", "απ' όσο ξέρω", "used when you think something is true but are not sure", "As far as I know, the museum is free on Sundays."],
+    ["it depends on", "εξαρτάται από", "used when the answer changes with the situation", "It depends on the weather, really."],
+    ["what I mean is", "αυτό που εννοώ είναι", "used to explain something more clearly", "What I mean is that we need more practice, not more theory."],
+    ["on the whole", "σε γενικές γραμμές", "in general", "On the whole, I enjoy living abroad."],
+    ["I'm not really into", "δεν με τραβάει ιδιαίτερα", "informal: I don't like it very much", "I'm not really into football."],
+    ["I'm keen on", "μου αρέσει πολύ", "I like it and I am interested in it", "I'm keen on hiking and photography."],
+    ["these days", "αυτή την εποχή, τελευταία", "nowadays", "These days, I spend most of my time at work."],
+    ["I used to", "συνήθιζα να", "something you did regularly in the past but not now", "I used to play basketball every weekend."],
+    ["looking back", "κοιτώντας πίσω", "when you think about the past", "Looking back, it was a great decision."],
+    ["the main reason is that", "ο κύριος λόγος είναι ότι", "introduces your strongest reason", "The main reason is that it saves time."],
+    ["another thing is", "κάτι ακόμα είναι", "adds a second point when you speak", "Another thing is that it's quite cheap."],
+    ["in the long run", "μακροπρόθεσμα", "over a long period of time", "In the long run, learning a language pays off."],
+    ["I've never really thought about it", "δεν το έχω σκεφτεί ποτέ", "an honest start when a question surprises you", "I've never really thought about it, but I suppose I'd choose the sea."],
+    ["it's hard to say", "είναι δύσκολο να πω", "used when you are not sure", "It's hard to say, but I think prices will keep rising."],
+    ["that's why", "γι' αυτό", "introduces a result", "I love the sea. That's why I go to the islands every summer."],
+    ["for one thing", "πρώτα απ' όλα, για αρχή", "introduces the first of several reasons", "For one thing, the rent is much lower."],
+    ["all in all", "συνολικά, γενικά", "used to sum up what you have said", "All in all, it was a really good experience."]
+  ]},
+  { id: 'acad2', name: 'Academic words 2', about: 'The next most frequent academic words (Academic Word List, part 2).', words: [
+    ["achieve", "πετυχαίνω", "to succeed in doing something after effort", "She achieved a high score in the exam."],
+    ["acquire", "αποκτώ", "to get or learn something", "Children acquire languages very quickly."],
+    ["affect", "επηρεάζω", "to have an influence on something (verb; the noun is “effect”)", "Lack of sleep affects memory."],
+    ["appropriate", "κατάλληλος", "suitable for a situation", "Jeans are not appropriate for a job interview."],
+    ["aspect", "πτυχή, όψη", "one part or feature of something", "Cost is only one aspect of the problem."],
+    ["complex", "πολύπλοκος", "having many connected parts; difficult to understand", "Climate change is a complex problem."],
+    ["conclude", "καταλήγω σε συμπέρασμα, ολοκληρώνω", "to decide something after looking at the facts; to end", "The report concludes that more research is needed."],
+    ["conduct", "διεξάγω", "to organise and do something, such as research", "We conducted a survey of 200 students."],
+    ["consume", "καταναλώνω", "to use or eat something", "Old fridges consume a lot of electricity."],
+    ["distinct", "διακριτός, ευδιάκριτος", "clearly different or separate", "There are two distinct groups in the data."],
+    ["element", "στοιχείο", "one part of something", "Trust is an important element of teamwork."],
+    ["evaluate", "αξιολογώ", "to judge how good or useful something is", "We need to evaluate the new system carefully."],
+    ["feature", "χαρακτηριστικό", "an important part or quality of something", "The main feature of the phone is its camera."],
+    ["focus on", "εστιάζω σε", "to give most of your attention to something", "This essay focuses on young people."],
+    ["impact", "αντίκτυπος, επίπτωση", "a strong effect", "Social media has a huge impact on teenagers."],
+    ["maintain", "διατηρώ, συντηρώ", "to keep something at the same level or in good condition", "It is hard to maintain a healthy diet."],
+    ["obtain", "αποκτώ, λαμβάνω", "to get something, often with effort (formal)", "You must obtain a visa before you travel."],
+    ["participate", "συμμετέχω", "to take part in something", "Over 300 people participated in the study."],
+    ["perceive", "αντιλαμβάνομαι", "to notice or understand something in a particular way", "Many people perceive science as difficult."],
+    ["potential", "δυνατότητα, δυνητικός", "possible in the future; an ability that can develop", "Solar power has great potential in Greece."],
+    ["previous", "προηγούμενος", "happening or existing before", "Sales were higher than in the previous year."],
+    ["primary", "κύριος, πρωταρχικός", "main; most important", "The primary aim of the project is to cut costs."],
+    ["resource", "πόρος", "something useful, such as money, water or staff", "Water is a limited resource."],
+    ["strategy", "στρατηγική", "a plan to achieve a goal", "You need a clear strategy for the reading section."],
+    ["survey", "έρευνα με ερωτηματολόγιο", "a set of questions you ask many people", "A survey showed that most students work part-time."]
+  ]},
+  { id: 'edu', name: 'Education', about: 'The most common IELTS essay topic: schools, universities and learning.', words: [
+    ["curriculum", "πρόγραμμα σπουδών", "all the subjects taught in a school or on a course", "Coding should be part of the school curriculum."],
+    ["compulsory", "υποχρεωτικός", "required by a law or a rule", "In many countries, school is compulsory until the age of 16."],
+    ["attend", "παρακολουθώ (μάθημα), πηγαίνω σε", "to go to a class, a school or an event", "Students must attend at least 80% of the lectures."],
+    ["vocational", "επαγγελματικός (κατάρτιση)", "teaching the skills for a particular job", "Vocational training prepares young people for work."],
+    ["academic performance", "ακαδημαϊκή επίδοση", "how well a student does at school or university", "Sleep has a strong effect on academic performance."],
+    ["literacy", "ικανότητα ανάγνωσης και γραφής", "the ability to read and write", "Literacy rates have risen around the world."],
+    ["distance learning", "εξ αποστάσεως εκπαίδευση", "studying from home, usually online", "Distance learning became common during the pandemic."],
+    ["face-to-face", "δια ζώσης", "in person, with people in the same place", "Many students prefer face-to-face classes."],
+    ["critical thinking", "κριτική σκέψη", "the skill of judging ideas and information carefully", "University should teach critical thinking."],
+    ["memorise", "αποστηθίζω", "to learn something so you can remember it exactly (US: memorize)", "Students often memorise facts without understanding them."],
+    ["graduate", "αποφοιτώ, απόφοιτος", "to finish a degree; a person who has a degree", "She graduated in 2024 with a degree in physics."],
+    ["scholarship", "υποτροφία", "money given to a student to pay for their studies", "He won a scholarship to study in the USA."],
+    ["discipline", "πειθαρχία, επιστημονικός κλάδος", "control of behaviour; also a subject of study", "Engineering is a demanding discipline."],
+    ["peer", "συνομήλικος, ομότιμος", "a person of the same age or level as you", "Teenagers are strongly influenced by their peers."],
+    ["motivation", "κίνητρο, παρακίνηση", "the wish or reason to do something", "Good teachers increase students' motivation."],
+    ["extracurricular", "εξωσχολικός", "done in addition to normal classes", "Extracurricular activities build confidence."],
+    ["well-rounded", "πολύπλευρος", "having a wide range of skills and experiences", "Schools should produce well-rounded students."],
+    ["lifelong learning", "δια βίου μάθηση", "continuing to learn throughout your life", "Lifelong learning is essential in a fast-changing world."],
+    ["hands-on", "πρακτικός, με εφαρμογή", "learning by doing things yourself", "Engineering students need hands-on experience."],
+    ["dropout", "μαθητής που εγκαταλείπει", "a person who leaves school before finishing", "The dropout rate is higher in rural areas."],
+    ["standardised test", "τυποποιημένο τεστ", "an exam that is the same for everyone who takes it (US: standardized test)", "TOEFL is a standardised test."],
+    ["thesis", "διπλωματική εργασία, διατριβή", "a long piece of writing for a university degree", "She is writing her thesis on renewable energy."],
+    ["supervisor", "επιβλέπων", "a person who guides a student's research", "My supervisor checks my progress every week."],
+    ["state school", "δημόσιο σχολείο", "a school paid for by the government (US: public school)", "Most children in Greece go to state schools."],
+    ["online learning", "διαδικτυακή μάθηση", "learning with courses on the internet", "Online learning gives people more flexibility."]
+  ]},
+  { id: 'tech', name: 'Technology', about: 'AI, the internet, social media and privacy, the second most common essay topic.', words: [
+    ["innovation", "καινοτομία", "a new idea, method or product", "Innovation drives economic growth."],
+    ["artificial intelligence", "τεχνητή νοημοσύνη", "computer systems that can do tasks that normally need human intelligence", "Artificial intelligence is changing many jobs."],
+    ["automation", "αυτοματοποίηση", "the use of machines to do work instead of people", "Automation has replaced many factory jobs."],
+    ["breakthrough", "σημαντική ανακάλυψη", "an important new discovery or development", "The vaccine was a major medical breakthrough."],
+    ["cutting-edge", "πρωτοποριακός, αιχμής", "the most modern and advanced", "The lab uses cutting-edge equipment."],
+    ["obsolete", "ξεπερασμένος", "no longer used because something better exists", "Fax machines are almost obsolete."],
+    ["device", "συσκευή", "a machine or tool made for a special purpose", "Most people own more than one digital device."],
+    ["rely on", "βασίζομαι σε", "to need something or someone in order to work or succeed", "We rely too much on our phones."],
+    ["access", "πρόσβαση", "the right or chance to use something", "Not everyone has access to fast internet."],
+    ["privacy", "ιδιωτικότητα", "the right to keep your personal life and information secret", "Many apps collect data, which threatens our privacy."],
+    ["surveillance", "παρακολούθηση, επιτήρηση", "careful watching of people, often with cameras", "Cities are using more surveillance cameras."],
+    ["algorithm", "αλγόριθμος", "a set of rules a computer follows to solve a problem", "The algorithm decides which videos you see."],
+    ["screen time", "χρόνος μπροστά σε οθόνη", "time spent using phones, computers or TV", "Parents worry about their children's screen time."],
+    ["digital divide", "ψηφιακό χάσμα", "the gap between people who have access to technology and people who do not", "The digital divide is wider in rural areas."],
+    ["user-friendly", "φιλικός προς τον χρήστη", "easy to use", "The new app is very user-friendly."],
+    ["drawback", "μειονέκτημα", "a disadvantage or problem", "The main drawback of electric cars is the price."],
+    ["outweigh", "υπερτερώ", "to be greater or more important than something else", "The benefits of the internet outweigh the risks."],
+    ["addictive", "εθιστικός", "making people want more and more", "Some games are designed to be addictive."],
+    ["cyberbullying", "διαδικτυακός εκφοβισμός", "using the internet to hurt or frighten someone", "Schools must take cyberbullying seriously."],
+    ["misinformation", "παραπληροφόρηση", "false or wrong information", "Misinformation spreads quickly online."],
+    ["implement", "εφαρμόζω, υλοποιώ", "to put a plan or system into action", "The company implemented a new software system."],
+    ["prototype", "πρωτότυπο, δοκιμαστικό μοντέλο", "the first model of a new product", "We built a prototype of the device in three months."],
+    ["wearable", "συσκευή που φοριέται", "a device you wear, such as a smartwatch", "Wearables can track your sleep and heart rate."],
+    ["virtual reality", "εικονική πραγματικότητα", "a computer-made 3D world that you can explore", "Virtual reality is used to train surgeons."],
+    ["data protection", "προστασία δεδομένων", "laws and methods that keep personal data safe", "Data protection rules are strict in the EU."]
+  ]},
+  { id: 'env', name: 'Environment', about: 'Climate, energy, pollution and nature.', words: [
+    ["climate change", "κλιματική αλλαγή", "long-term changes in the Earth's weather and temperatures", "Climate change is causing more extreme weather."],
+    ["global warming", "υπερθέρμανση του πλανήτη", "the rise in the Earth's average temperature", "Global warming is melting the Arctic ice."],
+    ["greenhouse gases", "αέρια του θερμοκηπίου", "gases such as CO2 that trap heat in the atmosphere", "Cars produce large amounts of greenhouse gases."],
+    ["emissions", "εκπομπές ρύπων", "gases sent into the air", "The EU wants to cut emissions by half."],
+    ["carbon footprint", "ανθρακικό αποτύπωμα", "the amount of CO2 that your activities produce", "Flying less reduces your carbon footprint."],
+    ["renewable energy", "ανανεώσιμη ενέργεια", "energy from sources that do not run out, such as sun and wind", "Greece produces a lot of renewable energy."],
+    ["fossil fuels", "ορυκτά καύσιμα", "fuels such as coal, oil and gas", "We still depend heavily on fossil fuels."],
+    ["deforestation", "αποψίλωση των δασών", "cutting down large areas of forest", "Deforestation destroys animal habitats."],
+    ["biodiversity", "βιοποικιλότητα", "the variety of plants and animals in an area", "Coral reefs have very high biodiversity."],
+    ["endangered species", "απειλούμενο είδος", "an animal or plant that may soon disappear", "The sea turtle is an endangered species."],
+    ["habitat", "βιότοπος", "the natural home of an animal or plant", "Pollution is destroying their natural habitat."],
+    ["pollution", "ρύπανση", "damage to air, water or land caused by harmful substances", "Air pollution is a serious problem in big cities."],
+    ["waste", "απόβλητα, σπατάλη", "things that people throw away; using something badly", "We produce far too much plastic waste."],
+    ["recycle", "ανακυκλώνω", "to treat used things so they can be used again", "Most paper can be recycled."],
+    ["sustainable", "βιώσιμος", "able to continue without harming the environment", "We need more sustainable ways to travel."],
+    ["conservation", "προστασία της φύσης", "protecting nature and wildlife", "Conservation projects protect rare birds."],
+    ["drought", "ξηρασία", "a long period without rain", "The drought destroyed the harvest."],
+    ["flood", "πλημμύρα", "a large amount of water covering land that is usually dry", "The floods damaged hundreds of homes."],
+    ["extinct", "εξαφανισμένος (είδος)", "no longer existing", "Dinosaurs became extinct millions of years ago."],
+    ["ecosystem", "οικοσύστημα", "all the living things in an area and how they affect each other", "Plastic is harming marine ecosystems."],
+    ["natural resources", "φυσικοί πόροι", "materials from nature, such as water, wood and oil", "We are using natural resources too quickly."],
+    ["tackle", "αντιμετωπίζω", "to try to deal with a difficult problem", "Countries must work together to tackle climate change."],
+    ["mitigate", "μετριάζω", "to make something less harmful or serious (formal)", "Trees in cities can mitigate the effects of heatwaves."],
+    ["heatwave", "καύσωνας", "a period of unusually hot weather", "The heatwave lasted for two weeks."],
+    ["single-use plastic", "πλαστικό μιας χρήσης", "plastic that is thrown away after one use", "Many countries have banned single-use plastic bags."]
+  ]},
+  { id: 'health', name: 'Health and lifestyle', about: 'Diet, exercise, stress and healthcare.', words: [
+    ["sedentary", "καθιστικός", "involving a lot of sitting and little exercise", "Office workers often have a sedentary lifestyle."],
+    ["obesity", "παχυσαρκία", "the condition of being very overweight", "Childhood obesity is rising in many countries."],
+    ["balanced diet", "ισορροπημένη διατροφή", "eating the right amounts of different kinds of food", "A balanced diet includes plenty of fruit and vegetables."],
+    ["nutrition", "διατροφή", "the food you eat and how it affects your health", "Good nutrition is important for children."],
+    ["life expectancy", "προσδόκιμο ζωής", "the number of years a person is expected to live", "Life expectancy in Japan is very high."],
+    ["well-being", "ευεξία", "the state of feeling healthy and happy", "Exercise improves mental well-being."],
+    ["mental health", "ψυχική υγεία", "the health of your mind and emotions", "Talking to friends is good for your mental health."],
+    ["stress", "άγχος, πίεση", "worry caused by difficult situations", "Exams cause a lot of stress."],
+    ["workload", "φόρτος εργασίας", "the amount of work you have to do", "Her workload is very heavy this month."],
+    ["processed food", "επεξεργασμένα τρόφιμα", "food changed in a factory, often with added sugar or salt", "Processed food is cheap but often unhealthy."],
+    ["physical activity", "σωματική δραστηριότητα", "movement such as walking or sport", "Adults need at least 150 minutes of physical activity a week."],
+    ["prevention", "πρόληψη", "stopping something bad from happening", "Prevention is better than cure."],
+    ["treatment", "θεραπεία", "medical care for an illness or injury", "The treatment lasted six months."],
+    ["chronic", "χρόνιος", "lasting for a long time", "Chronic back pain is common among office workers."],
+    ["healthcare", "υγειονομική περίθαλψη", "the system of medical services", "Everyone should have access to free healthcare."],
+    ["ageing population", "γήρανση του πληθυσμού", "a population with a growing share of old people (US: aging population)", "An ageing population puts pressure on pensions."],
+    ["vaccine", "εμβόλιο", "a substance that protects the body against a disease", "The vaccine was developed in less than a year."],
+    ["epidemic", "επιδημία", "a disease that spreads quickly among many people", "Obesity is often described as an epidemic."],
+    ["hygiene", "υγιεινή", "keeping yourself and your surroundings clean", "Good hygiene stops infections from spreading."],
+    ["symptom", "σύμπτωμα", "a sign of an illness", "A high temperature is a common symptom of flu."],
+    ["recover", "αναρρώνω, ανακάμπτω", "to get better after an illness or a problem", "It took him a month to recover."],
+    ["junk food", "ανθυγιεινό πρόχειρο φαγητό", "unhealthy food that is high in fat or sugar", "Junk food adverts often target children."],
+    ["public health", "δημόσια υγεία", "the health of the whole population", "Smoking bans have improved public health."],
+    ["burnout", "επαγγελματική εξουθένωση", "extreme tiredness caused by working too hard for too long", "Long working hours can lead to burnout."],
+    ["lifestyle", "τρόπος ζωής", "the way a person lives", "A healthy lifestyle reduces the risk of disease."]
+  ]},
+  { id: 'soc', name: 'Society, cities and crime', about: 'Housing, transport, inequality, crime and government spending.', words: [
+    ["urbanisation", "αστικοποίηση", "the movement of people from the countryside to cities (US: urbanization)", "Rapid urbanisation causes housing shortages."],
+    ["infrastructure", "υποδομές", "basic systems such as roads, water and power", "The government invested heavily in infrastructure."],
+    ["public transport", "μέσα μαζικής μεταφοράς", "buses, trains and trams that everyone can use (US: public transportation)", "Vienna has excellent public transport."],
+    ["congestion", "κυκλοφοριακή συμφόρηση", "too much traffic in one place", "A congestion charge reduces traffic in the city centre."],
+    ["affordable housing", "οικονομικά προσιτή κατοικία", "homes that people on normal incomes can pay for", "Young people struggle to find affordable housing."],
+    ["rural", "αγροτικός, της υπαίθρου", "related to the countryside", "Many rural areas are losing their young people."],
+    ["residents", "κάτοικοι", "people who live in a particular place", "Local residents complained about the noise."],
+    ["community", "κοινότητα", "the people who live in one area or share interests", "Libraries bring the community together."],
+    ["inequality", "ανισότητα", "an unfair difference between groups of people", "Income inequality has grown in many countries."],
+    ["poverty", "φτώχεια", "the state of being very poor", "Education is the best way out of poverty."],
+    ["crime rate", "δείκτης εγκληματικότητας", "the number of crimes in an area", "The crime rate fell by 10% last year."],
+    ["offender", "παραβάτης, δράστης", "a person who has committed a crime", "Young offenders need education, not just punishment."],
+    ["rehabilitation", "αποκατάσταση, επανένταξη", "helping someone return to a normal life", "Prisons should focus on rehabilitation."],
+    ["deter", "αποτρέπω", "to stop someone from doing something by making them afraid of what will happen", "Heavy fines deter people from speeding."],
+    ["legislation", "νομοθεσία", "laws made by a government", "New legislation protects workers' rights."],
+    ["authorities", "αρχές", "the people or organisations in control of an area", "The local authorities closed the beach."],
+    ["funding", "χρηματοδότηση", "money given for a particular purpose", "Museums depend on public funding."],
+    ["taxpayers", "φορολογούμενοι", "people who pay taxes", "Should taxpayers pay for space exploration?"],
+    ["welfare", "κοινωνική πρόνοια", "help from the government for people in need", "The welfare system supports unemployed people."],
+    ["volunteer", "εθελοντής, προσφέρομαι εθελοντικά", "a person who works without pay; to do this", "Many students volunteer at local charities."],
+    ["heritage", "πολιτιστική κληρονομιά", "traditions, buildings and art from the past", "Greece has a rich cultural heritage."],
+    ["globalisation", "παγκοσμιοποίηση", "the process by which countries become more connected (US: globalization)", "Globalisation has made many products cheaper."],
+    ["diversity", "ποικιλομορφία, διαφορετικότητα", "a range of different people or things", "Cultural diversity makes cities more interesting."],
+    ["tourism", "τουρισμός", "the business of travel and holidays", "Tourism is vital for the Greek economy."],
+    ["censorship", "λογοκρισία", "stopping people from publishing or seeing certain information", "Some governments use censorship to control the media."]
+  ]},
+  { id: 'work', name: 'Work and money', about: 'Jobs, careers, business and the economy.', words: [
+    ["employment", "απασχόληση", "having paid work", "The new factory will create employment for 500 people."],
+    ["unemployment", "ανεργία", "the state of not having a job", "Youth unemployment is high in southern Europe."],
+    ["workforce", "εργατικό δυναμικό", "all the people who work in a company or a country", "Women make up half of the workforce."],
+    ["remote work", "τηλεργασία", "working from home or away from the office", "Remote work saves commuting time."],
+    ["commute", "μετακινούμαι καθημερινά για δουλειά", "to travel regularly between home and work", "Many people commute to work by train."],
+    ["work-life balance", "ισορροπία δουλειάς και προσωπικής ζωής", "having enough time for both work and your private life", "A four-day week could improve work-life balance."],
+    ["job satisfaction", "επαγγελματική ικανοποίηση", "the feeling of enjoying your job", "For some people, job satisfaction matters more than salary."],
+    ["salary", "μισθός", "a fixed amount of money paid for a job, usually every month", "Engineers usually earn a good salary."],
+    ["income", "εισόδημα", "money that you receive from work or investments", "Families on a low income need support."],
+    ["promotion", "προαγωγή, προώθηση", "a move to a higher position at work; also advertising a product", "She got a promotion after two years."],
+    ["entrepreneur", "επιχειρηματίας", "a person who starts their own business", "Young entrepreneurs need access to loans."],
+    ["start-up", "νεοφυής επιχείρηση", "a new, small company", "He works for a tech start-up in Vienna."],
+    ["invest", "επενδύω", "to put money or time into something to get a benefit later", "Governments should invest more in education."],
+    ["economy", "οικονομία", "the system of trade, industry and money in a country", "Tourism is important for the economy."],
+    ["consumer", "καταναλωτής", "a person who buys goods or services", "Consumers are buying more online."],
+    ["profit", "κέρδος", "the money you make after you pay all your costs", "The company made a profit of two million euros."],
+    ["inflation", "πληθωρισμός", "a general rise in prices", "Inflation makes everyday life more expensive."],
+    ["tax", "φόρος", "money that people and companies pay to the government", "Some people think a tax on sugar would improve health."],
+    ["budget", "προϋπολογισμός", "a plan for how to spend money", "The project is over budget."],
+    ["skilled workers", "εξειδικευμένοι εργαζόμενοι", "people with special training for a job", "There is a shortage of skilled workers in IT."],
+    ["qualifications", "προσόντα, τίτλοι σπουδών", "exams you have passed or degrees you have earned", "You need good qualifications for this job."],
+    ["career prospects", "επαγγελματικές προοπτικές", "chances of success in your career", "A PhD can improve your career prospects in research."],
+    ["advertising", "διαφήμιση", "telling people about products to persuade them to buy", "Advertising aimed at children should be banned."],
+    ["outsource", "αναθέτω σε εξωτερικό συνεργάτη", "to pay another company to do some of your work", "Many firms outsource their customer service."],
+    ["retire", "συνταξιοδοτούμαι", "to stop working, usually because of your age", "People are retiring later than before."]
+  ]},
+  { id: 'colloc', name: 'Strong collocations', about: 'Word partners that make your writing sound natural, like “pose a threat” and “raise awareness”.', words: [
+    ["play a role in", "παίζω ρόλο σε", "to be involved in something and affect it", "Parents play a key role in their children's education."],
+    ["pose a threat to", "αποτελώ απειλή για", "to be a danger to something", "Plastic poses a threat to marine life."],
+    ["have an impact on", "έχω αντίκτυπο σε", "to affect something", "Technology has had a huge impact on how we work."],
+    ["raise awareness", "ευαισθητοποιώ", "to make people know more about a problem", "The campaign raised awareness of mental health."],
+    ["meet the needs of", "καλύπτω τις ανάγκες", "to provide what someone needs", "Schools must meet the needs of all students."],
+    ["take into account", "λαμβάνω υπόψη", "to consider something when you decide", "We must take the cost into account."],
+    ["draw a conclusion", "βγάζω συμπέρασμα", "to decide something from the facts", "It is too early to draw a conclusion."],
+    ["carry out research", "διεξάγω έρευνα", "to do research", "Scientists carried out research on 500 patients."],
+    ["gain experience", "αποκτώ εμπειρία", "to get practical knowledge", "Internships help students gain experience."],
+    ["make progress", "σημειώνω πρόοδο", "to improve or move forward", "I have made good progress with my writing."],
+    ["pay attention to", "δίνω προσοχή σε", "to watch, listen or think about something carefully", "Pay attention to the time limit."],
+    ["bridge the gap", "γεφυρώνω το χάσμα", "to reduce the difference between two things or groups", "Free laptops could help bridge the gap between rich and poor students."],
+    ["address a problem", "αντιμετωπίζω ένα πρόβλημα", "to start dealing with a problem", "The government must address the problem of housing."],
+    ["a growing number of", "όλο και περισσότεροι", "more and more", "A growing number of people work from home."],
+    ["widely accepted", "ευρέως αποδεκτός", "believed by most people", "It is widely accepted that smoking causes cancer."],
+    ["a key factor", "καθοριστικός παράγοντας", "one of the most important causes", "Price is a key factor when people buy a car."],
+    ["reach an agreement", "καταλήγω σε συμφωνία", "to agree after a discussion", "The two sides finally reached an agreement."],
+    ["set an example", "δίνω το καλό παράδειγμα", "to behave in a way that others should copy", "Teachers should set a good example."],
+    ["take responsibility for", "αναλαμβάνω την ευθύνη για", "to accept that something is your duty or your fault", "Companies must take responsibility for their waste."],
+    ["do more harm than good", "κάνω περισσότερο κακό παρά καλό", "to cause more damage than benefit", "Very strict diets can do more harm than good."],
+    ["heavily dependent on", "σε μεγάλο βαθμό εξαρτημένος από", "needing something very much", "The island is heavily dependent on tourism."],
+    ["a wide range of", "ένα ευρύ φάσμα", "many different kinds of", "The library offers a wide range of courses."],
+    ["make a contribution to", "συμβάλλω σε", "to help to achieve something", "Volunteers make a valuable contribution to society."],
+    ["come up with", "σκέφτομαι, επινοώ", "to think of an idea or a plan", "We need to come up with a better solution."],
+    ["keep up with", "συμβαδίζω με", "to stay at the same level as someone or something", "It is hard to keep up with new technology."]
+  ]},
+  { id: 'acad3', name: 'Academic words 3', about: 'Higher-level words that lift your vocabulary score in writing and speaking.', words: [
+    ["crucial", "καθοριστικός, ζωτικής σημασίας", "extremely important", "Sleep is crucial for learning."],
+    ["substantial", "σημαντικός, μεγάλος", "large in amount or value", "The project received substantial funding."],
+    ["considerable", "σημαντικός, αξιόλογος", "large or important enough to notice", "The new system saves a considerable amount of time."],
+    ["inevitable", "αναπόφευκτος", "certain to happen", "Some mistakes are inevitable when you learn a language."],
+    ["widespread", "διαδεδομένος", "happening in many places or among many people", "Smartphone use is widespread among teenagers."],
+    ["enhance", "ενισχύω, βελτιώνω", "to improve the quality of something", "Music can enhance concentration."],
+    ["emerge", "αναδύομαι, προκύπτω", "to appear or become known", "New problems emerged during the study."],
+    ["ensure", "διασφαλίζω", "to make certain that something happens", "Please ensure that your phone is switched off."],
+    ["contribute to", "συμβάλλω σε", "to be one of the causes of something", "Stress contributes to poor sleep."],
+    ["promote", "προωθώ, προάγω", "to help something develop or become popular", "Schools should promote healthy eating."],
+    ["justify", "δικαιολογώ, αιτιολογώ", "to give a good reason for something", "Can such a high cost be justified?"],
+    ["sufficient", "επαρκής", "enough (formal)", "There is not sufficient evidence to prove it."],
+    ["adequate", "επαρκής, ικανοποιητικός", "good enough for a purpose", "Many schools lack adequate funding."],
+    ["allocate", "διαθέτω, κατανέμω", "to give money or time for a particular purpose", "The city allocated five million euros to cycling."],
+    ["attribute to", "αποδίδω σε", "to say that something is caused by something else", "The rise in prices is attributed to higher energy costs."],
+    ["consistent", "συνεπής, σταθερός", "always behaving or happening in the same way", "Use consistent spelling: British or American."],
+    ["perspective", "οπτική, σκοπιά", "a particular way of thinking about something", "From an economic perspective, the plan makes sense."],
+    ["phenomenon", "φαινόμενο", "something that happens or exists, often unusual (plural: phenomena)", "Remote work is a relatively recent phenomenon."],
+    ["outcome", "έκβαση, αποτέλεσμα", "the final result", "Nobody can predict the outcome of the election."],
+    ["framework", "πλαίσιο", "a structure of rules or ideas", "The EU created a legal framework for artificial intelligence."],
+    ["notion", "ιδέα, αντίληψη", "an idea or a belief", "The notion that money brings happiness is too simple."],
+    ["insight", "βαθιά κατανόηση", "a clear, deep understanding of something", "The study gives new insight into how the brain learns."],
+    ["thereby", "με αυτόν τον τρόπο", "as a result of this action (formal)", "Cycling reduces traffic, thereby cutting pollution."],
+    ["fundamental", "θεμελιώδης", "basic and very important", "Education is a fundamental right."],
+    ["undermine", "υπονομεύω", "to make something weaker little by little", "Fake news undermines trust in the media."]
+  ]},
+  { id: 'science', name: 'Lecture topics', about: 'Biology, earth science, space and history, the subjects of TOEFL academic talks and passages.', words: [
+    ["species", "είδος (ζώου ή φυτού)", "a group of similar animals or plants (plural: species)", "Over 300 species of birds live in the park."],
+    ["organism", "οργανισμός", "a living thing", "Bacteria are very small organisms."],
+    ["evolve", "εξελίσσομαι", "to develop slowly over a long time", "Birds evolved from dinosaurs."],
+    ["adaptation", "προσαρμογή", "a change that helps a living thing survive in its environment", "Thick fur is an adaptation to cold weather."],
+    ["predator", "θηρευτής", "an animal that kills and eats other animals", "Wolves are predators."],
+    ["prey", "λεία, θήραμα", "an animal that is hunted by another animal", "Mice are prey for owls."],
+    ["migrate", "μεταναστεύω", "to move to another place when the season changes", "Many birds migrate south for the winter."],
+    ["fossil", "απολίθωμα", "the remains of an ancient plant or animal in rock", "Scientists found fossils of early fish."],
+    ["erosion", "διάβρωση", "slow damage to rock or soil by water, wind or ice", "Coastal erosion threatens many villages."],
+    ["sediment", "ίζημα", "sand and mud that settle at the bottom of water", "Layers of sediment slowly turn into rock."],
+    ["volcanic", "ηφαιστειακός", "related to volcanoes", "Santorini has rich volcanic soil."],
+    ["atmosphere", "ατμόσφαιρα", "the layer of gases around a planet", "Mars has a very thin atmosphere."],
+    ["orbit", "τροχιά, περιφέρομαι", "the path of one object around another in space; to move along this path", "The Moon orbits the Earth."],
+    ["gravity", "βαρύτητα", "the force that pulls objects towards each other", "Gravity keeps the planets in their orbits."],
+    ["hypothesis", "υπόθεση (επιστημονική)", "an idea that can be tested (plural: hypotheses)", "The results supported our hypothesis."],
+    ["evidence", "στοιχεία, αποδείξεις", "facts that show something is true", "There is strong evidence that exercise improves memory."],
+    ["civilisation", "πολιτισμός", "an organised society with its own culture (US: civilization)", "Ancient Greek civilisation shaped modern science."],
+    ["settlement", "οικισμός", "a place where people come to live", "Archaeologists found an early settlement near the river."],
+    ["agriculture", "γεωργία", "farming", "Agriculture began about 10,000 years ago."],
+    ["irrigation", "άρδευση", "supplying water to crops", "Irrigation allowed farmers to grow food in dry areas."],
+    ["archaeologist", "αρχαιολόγος", "a person who studies the past by digging up old objects (US also: archeologist)", "An archaeologist discovered a Roman coin."],
+    ["artefact", "τέχνεργο, αρχαίο αντικείμενο", "an object made by people long ago (US: artifact)", "The museum displays artefacts from ancient Crete."],
+    ["pigment", "χρωστική ουσία", "a substance that gives something its colour", "Early artists made pigments from minerals."],
+    ["photosynthesis", "φωτοσύνθεση", "the process by which plants use sunlight to make food", "Photosynthesis produces oxygen."],
+    ["theory", "θεωρία", "a set of ideas that explains something", "The theory explains why the climate changed."]
+  ]}
+];
+
+/* ---------- TOEFL Complete the Words: short academic texts, written for this app.
+   The first sentence stays whole; from the second sentence on, every second word
+   loses its second half, ten words in all (the C-test pattern the task uses). ---------- */
+const CTEST = [
+  { id: 'cw1', title: 'Bees and farming', text: 'Honeybees play an important role in agriculture because they pollinate many of the crops we eat. When a bee visits a flower to collect nectar, it carries pollen from one plant to another. This process allows the plant to produce fruit and seeds. Without bees, farmers would have to pollinate crops by hand, which is slow and expensive. In recent years, however, bee populations have declined in many parts of the world. Scientists believe that pesticides, disease and the loss of natural habitats are the main causes.' },
+  { id: 'cw2', title: 'The printing press', text: 'The printing press, developed in Europe in the fifteenth century, changed the way information was shared. Before its invention, books were copied by hand, so they were rare and very expensive. Printing made it possible to produce hundreds of copies quickly and at a much lower cost. As a result, more people learned to read, and new ideas spread faster than ever before. Many historians argue that the printing press helped to make the scientific revolution possible.' },
+  { id: 'cw3', title: 'Living near volcanoes', text: 'Although volcanic eruptions can be extremely destructive, they also bring important benefits to the land around them. Over time, volcanic ash breaks down and forms soil that is rich in minerals. Plants grow well in this soil, which is why many farming communities live close to active volcanoes. The slopes of some volcanoes have been farmed for thousands of years. Living there involves a clear risk, but for many families the advantages are greater than the dangers.' },
+  { id: 'cw4', title: 'Sleep and memory', text: 'Sleep is not simply a period of rest, because it plays an active role in how we learn. During deep sleep, the brain replays information that was collected during the day. This process helps to move new memories into long-term storage. In one study, students who slept after learning a list of words remembered more of them than students who stayed awake. Researchers therefore recommend reviewing difficult material in the evening and getting a full night of sleep before an exam.' },
+  { id: 'cw5', title: 'Hot cities', text: 'Cities are often several degrees warmer than the countryside around them, especially at night. This effect, called an urban heat island, is caused mainly by buildings and roads. Concrete and dark asphalt absorb heat during the day and release it slowly after sunset. In addition, cars, air conditioners and factories produce extra heat. To reduce the problem, some cities are planting more trees, creating green roofs and painting surfaces white so that they reflect sunlight.' },
+  { id: 'cw6', title: 'The Silk Road', text: 'The Silk Road was not a single road but a network of trade routes that connected China with the Mediterranean. Merchants used these routes to buy and sell goods such as silk, spices and glass. However, the routes carried more than products. Ideas, languages and religions also moved along them, and so did new technologies like paper making. Because of this exchange, the Silk Road is often described as one of the first examples of global trade.' },
+  { id: 'cw7', title: 'Coral reefs', text: 'Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. A reef is built slowly by tiny animals called corals, which produce a hard skeleton. Corals live together with algae that give them food and their bright colours. When the water becomes too warm, the corals push the algae out and turn white. This is known as coral bleaching, and if it continues for too long, the corals may die.' },
+  { id: 'cw8', title: 'Learning a second language', text: 'Children and adults learn new languages in different ways. Young children usually pick up pronunciation easily because they are good at copying sounds. Adults, on the other hand, often learn grammar and vocabulary faster, since they can use rules and memory strategies. Motivation also matters a great deal. Learners who use the language for real purposes, such as work or friendship, tend to make more progress than those who study only for tests.' },
+  { id: 'cw9', title: 'Storing clean energy', text: 'Solar and wind power are clean, but they do not produce electricity all the time. The sun sets every evening, and the wind does not always blow. For this reason, energy has to be stored for periods when production is low. Today, large batteries are the most common solution, although they are still expensive. Engineers are also testing other methods, such as pumping water uphill and releasing it later to drive turbines.' },
+  { id: 'cw10', title: 'The first writing systems', text: 'Writing developed independently in several parts of the ancient world. The earliest systems used simple pictures to represent objects, such as animals, tools or grain. Over time, these pictures became more abstract and began to stand for sounds rather than things. This change made writing much more flexible, because a small number of symbols could express almost any word. Most modern alphabets can be traced back to this important step.' },
+  { id: 'cw11', title: 'Microplastics', text: 'Microplastics are tiny pieces of plastic that are less than five millimetres long. Some are made on purpose for products like cosmetics, but most come from larger items that break apart over time. They have been found in oceans, rivers, soil and even in the air we breathe. Because they are so small, they are easily eaten by fish and other animals. Scientists are still studying how they affect human health, but many countries have already started to limit their use.' },
+  { id: 'cw12', title: 'Why we put things off', text: 'Almost everyone delays important tasks from time to time, a habit known as procrastination. Psychologists say that the main cause is not laziness but the wish to avoid unpleasant feelings. When a task seems boring or difficult, putting it off gives us a short moment of relief. Unfortunately, the stress usually returns and grows as the deadline gets closer. One useful strategy is to break a large task into small steps and to start with just five minutes of work.' }
+];
 </script>
 
 <script>
@@ -1098,8 +1668,29 @@ const ICON = {
   x: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>',
   alert: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.8v5M12 16.3v.2"/></svg>',
   chev: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
-  mark: '<svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="20" width="56" height="28" rx="7" fill="var(--hi)" transform="rotate(-7 32 34)"/><path d="M18 34l9 9 20-22" fill="none" stroke="#1B2333" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  mark: '<svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="4" y="20" width="56" height="28" rx="7" fill="var(--hi)" transform="rotate(-7 32 34)"/><path d="M18 34l9 9 20-22" fill="none" stroke="#1B2333" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  spark: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3.5l1.9 5.1 5.1 1.9-5.1 1.9L11 17.5l-1.9-5.1L4 10.5l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>',
+  repeat: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11a7.5 7.5 0 0 1 13-4.6L19.5 8.5M19.5 4v4.5H15M19.5 13a7.5 7.5 0 0 1-13 4.6L4.5 15.5M4.5 20v-4.5H9"/></svg>'
 };
+
+/* A small city skyline for the header: buildings as [x, width, height, top], drawn once. */
+const SKYLINE = (() => {
+  const B = [[0, 24, 26], [26, 18, 40], [46, 30, 22], [78, 20, 50, 'spire'], [100, 26, 34], [128, 16, 58, 'mast'], [146, 32, 42],
+    [180, 20, 30], [202, 30, 70, 'deco'], [234, 22, 46], [258, 28, 32], [288, 18, 54, 'mast'], [308, 26, 38], [336, 24, 24]];
+  const H = 110;
+  let b = '', w = '';
+  B.forEach(([x, wd, h, top], i) => {
+    const y = H - h;
+    b += '<rect x="' + x + '" y="' + y + '" width="' + wd + '" height="' + h + '"/>';
+    if (top === 'spire') b += '<path d="M' + (x + wd / 2 - 3) + ' ' + y + 'L' + (x + wd / 2) + ' ' + (y - 16) + 'L' + (x + wd / 2 + 3) + ' ' + y + 'Z"/>';
+    if (top === 'mast') b += '<rect x="' + (x + wd / 2 - 1) + '" y="' + (y - 14) + '" width="2" height="14"/>';
+    if (top === 'deco') b += '<rect x="' + (x + 5) + '" y="' + (y - 10) + '" width="' + (wd - 10) + '" height="10"/><rect x="' + (x + 10) + '" y="' + (y - 18) + '" width="' + (wd - 20) + '" height="8"/><rect x="' + (x + wd / 2 - 1) + '" y="' + (y - 34) + '" width="2" height="16"/>';
+    if (i % 2 === 0) w += '<rect x="' + (x + 3) + '" y="' + (y + 6) + '" width="' + (wd - 6) + '" height="' + (h - 10) + '" fill="url(#sky-win)"/>';
+  });
+  return '<svg class="sky" viewBox="0 0 360 110" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">' +
+    '<defs><pattern id="sky-win" width="6" height="8" patternUnits="userSpaceOnUse"><rect x="1.5" y="2" width="2.2" height="3" class="win"/></pattern></defs>' +
+    '<circle class="sun" cx="326" cy="44" r="15"/><g class="bld">' + b + '</g><g class="wins">' + w + '</g></svg>';
+})();
 
 const SKILL = Object.fromEntries(SKILLS.map(s => [s.id, s]));
 const N = PLAN.length;
@@ -1119,10 +1710,12 @@ const PLAN_VERSION = 2;
 function defaults() {
   return {
     v: 1, planV: PLAN_VERSION,
-    settings: { start: '2026-10-05', toeflDate: '', ieltsDate: '', toeflTarget: 5, ieltsTarget: 7, dailyGoal: 90, speakAloud: true, spelling: 'en-GB', model: DEFAULT_MODEL },
-    done: {}, habits: {}, log: [], scores: [], words: [], essays: [], drills: [], lessons: {}, used: {}, draft: null
+    settings: { start: '2026-10-05', toeflDate: '', ieltsDate: '', toeflTarget: 5, ieltsTarget: 7, dailyGoal: 90, speakAloud: true, spelling: 'en-GB', model: DEFAULT_MODEL, name: 'Panos', newWords: 10, bg: 'sky', reviewDir: 'term' },
+    done: {}, habits: {}, log: [], scores: [], words: [], essays: [], drills: [], lessons: {}, used: {}, draft: null,
+    dict: [], ltIgnore: []
   };
 }
+const NEW_WORD_OPTIONS = [5, 10, 15, 20];
 function normalize(s) {
   const d = defaults();
   if (!s || typeof s !== 'object') return d;
@@ -1138,7 +1731,13 @@ function normalize(s) {
   st.speakAloud = st.speakAloud !== false;
   if (st.spelling !== 'en-US') st.spelling = 'en-GB';
   if (!MODELS[st.model]) st.model = DEFAULT_MODEL;
-  ['log', 'scores', 'words', 'essays', 'drills'].forEach(k => { if (!Array.isArray(out[k])) out[k] = []; });
+  st.name = typeof st.name === 'string' ? st.name.trim().slice(0, 30) : '';
+  st.newWords = NEW_WORD_OPTIONS.includes(Number(st.newWords)) ? Number(st.newWords) : 10;
+  if (st.bg !== 'plain') st.bg = 'sky';
+  if (!['term', 'meaning', 'type'].includes(st.reviewDir)) st.reviewDir = 'term';
+  ['log', 'scores', 'words', 'essays', 'drills', 'dict', 'ltIgnore'].forEach(k => { if (!Array.isArray(out[k])) out[k] = []; });
+  out.dict = uniq(out.dict.filter(w => typeof w === 'string' && w.trim()).map(w => w.trim().toLowerCase())).slice(0, 500);
+  out.ltIgnore = uniq(out.ltIgnore.filter(k => typeof k === 'string' && k)).slice(0, 500);
   ['done', 'habits', 'used', 'lessons'].forEach(k => { if (!out[k] || typeof out[k] !== 'object' || Array.isArray(out[k])) out[k] = {}; });
   out.log = out.log.filter(l => l && isISO(l.date) && SKILL[l.skill] && Number(l.min) > 0);
   out.words = out.words.filter(w => w && w.term);
@@ -1336,11 +1935,11 @@ function taskName(task, pid) {
    ============================================================ */
 const ui = {
   tab: 'today', pmode: dayIdx(todayISO()) < PARTS[0].days ? 'lessons' : 'writing', pv: 'list', showOverdue: false,
-  wordsDir: 'term', wordQuery: '', scoreForm: null, resultId: null, reviseId: null, justSaved: null,
+  wordsDir: state.settings.reviewDir, wordQuery: '', scoreForm: null, resultId: null, reviseId: null, justSaved: null, addOpen: false,
   openParts: new Set([partOf(clamp(dayIdx(todayISO()), 0, N - 1))])
 };
 const WR = { running: false, t0: 0, lastFold: 0 };
-let SP = null, BD = null, WV = null, LS = null;
+let SP = null, BD = null, WV = null, LS = null, LN = null, CW = null;
 let lastDay = todayISO();
 
 /* ============================================================
@@ -1440,8 +2039,12 @@ const scrollTop = () => window.scrollTo(0, 0);
    ============================================================ */
 const TABS = [['today', 'Today'], ['plan', 'Plan'], ['practice', 'Practice'], ['words', 'Words'], ['progress', 'Progress']];
 
-function render() { renderTop(); renderTabs(); renderBanner(); renderMain(); }
+function render() { document.documentElement.dataset.bg = state.settings.bg; renderTop(); renderTabs(); renderBanner(); renderMain(); }
 
+function greeting() {
+  const hr = new Date().getHours(), n = state.settings.name;
+  return (hr >= 5 && hr < 12 ? 'Good morning' : hr >= 12 && hr < 18 ? 'Good afternoon' : 'Good evening') + (n ? ', ' + n : '');
+}
 function renderTop() {
   const t = todayISO(), di = dayIdx(t), end = planEnd();
   let title, sub;
@@ -1479,11 +2082,15 @@ function renderTop() {
     const when = n > 1 ? 'in ' + n + ' days' : n === 1 ? 'tomorrow' : n === 0 ? 'today' : 'done';
     return '<span class="ticket"><b>' + name + '</b> ' + esc(fmtShort(d)) + ', ' + when + '</span>';
   };
-  $('#top').innerHTML =
+  /* the full header on Today and Plan; a slim one elsewhere, so practice starts higher on a phone */
+  const full = ui.tab === 'today' || ui.tab === 'plan', top = $('#top');
+  top.classList.toggle('compact', !full);
+  top.innerHTML =
     '<div class="brand"><span class="name">' + ICON.mark + 'English prep</span>' +
     '<button class="btn ghost small" data-act="settings">' + ICON.gear + '<span>Settings</span></button></div>' +
-    '<h1 class="day">' + esc(title) + '</h1><p class="sub">' + esc(sub) + '</p>' + strip +
-    '<div class="exams">' + exam('TOEFL', state.settings.toeflDate) + exam('IELTS', state.settings.ieltsDate) + '</div>';
+    '<section class="hero"><div class="hero-top">' + SKYLINE + (full ? '<p class="greet">' + esc(greeting()) + '</p>' : '') +
+    '<h1 class="day">' + esc(title) + '</h1><p class="sub">' + esc(sub) + '</p></div>' +
+    (full ? strip + '<div class="exams">' + exam('TOEFL', state.settings.toeflDate) + exam('IELTS', state.settings.ieltsDate) + '</div>' : '') + '</section>';
 }
 
 function renderTabs() {
@@ -1520,6 +2127,7 @@ function goButton(go) {
   let label = 'Open';
   if (go === 'w:history') label = 'View';
   else if (go.startsWith('w:') || go.startsWith('s:') || go.startsWith('lesson:')) label = 'Start';
+  else if (go === 'words:learn' || go.startsWith('r:')) label = 'Start';
   else if (go === 'words:add') label = 'Add';
   else if (go === 'words:review') label = 'Review';
   else if (go.startsWith('scores:')) label = 'Log';
@@ -1540,11 +2148,17 @@ function taskRow(di, ti, showDay) {
 }
 function habitRow(h) {
   const d = todayISO(), done = !!(state.habits[d] && state.habits[d][h.id]), id = 'h-' + h.id;
-  let go = h.go, extra = '';
+  let go = h.go, extra = '', text = h.t;
   if (h.id === 'words') { const n = dueWords().length; extra = n ? plural(n, 'word') + ' due' : 'nothing due'; if (!n) go = null; }
+  if (h.id === 'learn') {
+    const n = state.settings.newWords, got = newToday(), nx = nextNew(1)[0];
+    text = 'Learn ' + n + ' new words';
+    extra = got ? plural(got, 'word') + ' learned today' : nx ? 'next: ' + SET_BY[nx.set].name : 'all learned';
+    if (!nx) go = null;
+  }
   return '<div class="task' + (done ? ' done' : '') + '">' +
     '<input type="checkbox" class="check" id="' + id + '" data-act="tick-habit" data-h="' + h.id + '"' + (done ? ' checked' : '') + '>' +
-    '<label for="' + id + '"><span class="t-text">' + esc(h.t) + '</span>' + metaHTML(h.s, h.m, extra) + '</label>' +
+    '<label for="' + id + '"><span class="t-text">' + esc(text) + '</span>' + metaHTML(h.s, h.m, extra) + '</label>' +
     goButton(go) + '</div>';
 }
 
@@ -1556,9 +2170,11 @@ function viewToday() {
   let h = '<p class="dateline">' + esc(fmtLong(t)) + '</p>';
   if (di >= 0 && di < N) {
     const p = partOf(di);
+    const ds = dayStatus(di);
     h += '<p class="weekline">Chapter ' + (p + 1) + ': ' + esc(PARTS[p].name) + '</p>';
-    h += '<h2 class="daytitle">' + esc(PLAN[di].title) + '</h2>';
+    h += '<div class="dayhead"><h2 class="daytitle">' + esc(PLAN[di].title) + '</h2><span class="pill' + (ds.done === ds.total ? ' ok' : '') + '">' + ds.done + ' of ' + ds.total + ' done</span></div>';
     h += '<div class="sheet">' + PLAN[di].tasks.map((_, ti) => taskRow(di, ti)).join('') + '</div>';
+    if (ds.total && ds.done === ds.total) h += '<div class="sheet pad daydone">' + ICON.check + '<p><b>Day ' + (di + 1) + ' is done.</b> Everything on today\'s plan is ticked. Keep the daily habits below going, and rest well.</p></div>';
   } else if (di < 0) {
     h += '<h2 class="daytitle">Day 1 starts ' + esc(fmtLong(planStart())) + '</h2><p class="muted">Here it is, in case you want a head start.</p>';
     h += '<div class="sheet">' + PLAN[0].tasks.map((_, ti) => taskRow(0, ti)).join('') + '</div>';
@@ -1637,9 +2253,10 @@ function viewPractice() {
   if (ui.pv === 'revise') return viewRevise();
   if (ui.pv === 'build' && BD) return viewBuild();
   if (ui.pv === 'speak' && SP) return viewSpeak();
+  if (ui.pv === 'cw' && CW) return viewCW();
   ui.pv = 'list';
   const seg = (mode, label) => '<button data-act="pmode" data-mode="' + mode + '" aria-pressed="' + (ui.pmode === mode) + '">' + label + '</button>';
-  let h = '<h2>Practice</h2><div class="seg" role="group" aria-label="Practice type">' + seg('lessons', 'Lessons') + seg('writing', 'Writing') + seg('speaking', 'Speaking') + '</div>';
+  let h = '<h2>Practice</h2><div class="seg" role="group" aria-label="Practice type">' + seg('lessons', 'Lessons') + seg('writing', 'Writing') + seg('speaking', 'Speaking') + seg('reading', 'Reading') + '</div>';
   const item = (title, rule, act, key) => '<div class="pitem"><div><h4>' + esc(title) + '</h4><p>' + esc(rule) + '</p></div><button class="btn small" data-act="' + act + '" data-task="' + key + '">Start</button></div>';
   const d = state.draft;
   const resume = d ? '<div class="sheet pad" style="margin-top:12px"><p><b>Unfinished: ' + esc(taskName(d.task, d.pid)) + '</b><br><span class="muted">' +
@@ -1676,6 +2293,16 @@ function viewPractice() {
       const best = Math.max(...drills.map(x => x.correct));
       h += '<p class="muted small" style="margin-top:12px">Build a Sentence: ' + plural(drills.length, 'set') + ' done, best score ' + best + ' of 10.</p>';
     }
+  } else if (ui.pmode === 'reading') {
+    h += '<h3 class="sec">TOEFL Complete the Words</h3><p class="muted">The first task in the new TOEFL Reading section. In a short academic text, ten words are missing their second half and you type the missing letters. It tests spelling, grammar and vocabulary at the same time, so it helps for IELTS too.</p>' +
+      '<div class="sheet plist">' + CTEST.map((c, k) => {
+        const b = cwBest(c.id);
+        return '<div class="pitem"><div><h4>' + (k + 1) + '. ' + esc(c.title) + '</h4><p>' + (b == null ? '10 missing words' : 'Best: ' + b + ' of 10') + '</p></div>' +
+          '<button class="btn small" data-act="cw-open" data-id="' + c.id + '">' + (b == null ? 'Start' : 'Again') + '</button></div>';
+      }).join('') + '</div>';
+    h += '<h3 class="sec">The other reading tasks</h3><div class="sheet plist">' +
+      '<div class="pitem"><div><h4>TOEFL Read in Daily Life and Academic Passage</h4><p>Short emails and notices, then a longer academic text. Use the free official practice test.</p></div><a class="btn small" href="' + esc(LINKS.toeflPrep) + '" target="_blank" rel="noopener">Open ' + ICON.out + '</a></div>' +
+      '<div class="pitem"><div><h4>IELTS Academic Reading</h4><p>Three long texts in 60 minutes. Free practice tests from the British Council.</p></div><a class="btn small" href="' + esc(LINKS.ieltsPrep) + '" target="_blank" rel="noopener">Open ' + ICON.out + '</a></div></div>';
   } else {
     h += '<p class="hint">Your answers are recorded in the browser so you can listen back. Recordings are not saved: download any you want to keep before you leave the page.</p>';
     if (typeof window.MediaRecorder === 'undefined' || !navigator.mediaDevices) h += '<p class="hint">This browser cannot record audio. You can still practise with the timers.</p>';
@@ -1700,11 +2327,15 @@ function afterPractice() {
     const inp = $('#l-inp'); if (inp) { inp.focus({ preventScroll: true }); if (inp.tagName === 'TEXTAREA') inp.setSelectionRange(inp.value.length, inp.value.length); }
   }
   if (ui.pv === 'write') drawStim();
+  if (ui.pv === 'cw' && CW) {
+    updateCWTimer();
+    if (CW.focus && !CW.checked) { CW.focus = false; focusSel('.cwi'); }
+  }
 }
 function backToPractice() {
   if (WR.running) wPause();
   if (SP) { sCleanup(true); SP = null; }
-  BD = null; LS = null; ui.justSaved = null;
+  BD = null; LS = null; CW = null; ui.justSaved = null;
   ui.pv = 'list';
   render(); scrollTop();
 }
@@ -2037,7 +2668,7 @@ function viewResult() {
   h += '<h3 class="sec">Checklist</h3>' + checksHTML(examChecks(e));
   h += '<h3 class="sec">Examiner feedback</h3><div id="fb-box">' + fbBoxHTML(e) + '</div>';
   if (e.rev) {
-    const left = e.rev.lt ? cleanMatches(e.rev.lt.m, e.rev.text).length : -1;
+    const left = e.rev.lt ? visibleMatches(e.rev.lt, e.rev.text).length : -1;
     h += '<p class="small" style="margin-top:18px">You started a rewrite on ' + esc(fmtShort(e.rev.date)) + (left === 0 ? ', and the checker found nothing left to fix' : left > 0 ? ', with ' + plural(left, 'thing') + ' left to fix' : '') + '.</p>';
   }
   h += '<div class="actions"><button class="btn primary" data-act="w-revise" data-id="' + e.id + '">' + (e.rev ? 'Continue your rewrite' : 'Fix it and check again') + '</button>' +
@@ -2049,10 +2680,10 @@ function viewRevise() {
   const e = state.essays.find(x => x.id === ui.reviseId);
   if (!e) { ui.pv = 'list'; return viewPractice(); }
   const text = e.rev ? e.rev.text : e.text;
-  const orig = e.lt ? cleanMatches(e.lt.m, e.text) : [];
+  const orig = visibleMatches(e.lt, e.text);
   let h = '<div class="crumbs"><button class="linkbtn" data-act="essay-open" data-id="' + e.id + '">Back to the corrections</button></div>';
   h += '<h2>Fix it and check again</h2><p class="muted">Rewrite your text using the corrections. There is no time limit. Then check it again until nothing is left.</p>';
-  if (orig.length) h += '<details class="tableview" open><summary>Corrections on your first version (' + orig.length + ')</summary><ol class="issues">' + orig.map((m, i) => issueLI(m, i, e.text)).join('') + '</ol></details>';
+  if (orig.length) h += '<details class="tableview" open><summary>Corrections on your first version (' + orig.length + ')</summary><ol class="issues">' + orig.map((m, i) => issueLI(m, i, e.text, 'e:' + e.id)).join('') + '</ol></details>';
   if (e.fb && e.fb.mistakes && e.fb.mistakes.length) h += '<details class="tableview"><summary>Claude\'s list of mistakes (' + e.fb.mistakes.length + ')</summary>' + mistakesHTML(e.fb.mistakes) + '</details>';
   h += '<label class="sr-only" for="rev-text">Your rewrite</label><textarea id="rev-text" class="paper" style="margin-top:14px" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="sentences">' + esc(text) + '</textarea>';
   h += '<div class="wc"><span id="rev-count">' + plural(wordCount(text), 'word') + '</span></div>';
@@ -2086,6 +2717,64 @@ function cleanMatches(m, text) {
   });
   return out;
 }
+/* The checker does not know names like g.tec or g.Pype, acronyms like EEG, or the words in your
+   own dictionary, so its alarms inside them are hidden. "Not a mistake" adds a word to the
+   dictionary, or hides one suggestion for good. */
+const isSpellRule = m => m.type === 'misspelling' || /MORFOLOGIK|SPELL|HUNSPELL/i.test(m.id || '');
+const isTokenRule = m => isSpellRule(m) || m.type === 'whitespace' || m.type === 'typographical' ||
+  /CASE|CASING|UPPERCASE|LOWERCASE|WHITESPACE|SPACE/i.test(m.id || '') || /capitali[sz]ation/i.test(m.cat || '');
+/* only real spelling and spacing alarms add a word to the dictionary; rules such as a/an or a lowercase "i"
+   call themselves misspellings too, so those are hidden one by one instead */
+const isDictRule = m => /MORFOLOGIK|SPELL|HUNSPELL|WHITESPACE/i.test(m.id || '') ||
+  (!m.id && (m.type === 'whitespace' || (m.type === 'misspelling' && /typo|spell/i.test(m.cat || ''))));
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function nameSpans(text) {
+  const out = [];
+  const add = (re, kind, test) => {
+    re.lastIndex = 0; let x;
+    while ((x = re.exec(text))) { if (!x[0]) { re.lastIndex++; continue; } if (!test || test(x[0])) out.push({ a: x.index, b: x.index + x[0].length, kind }); }
+  };
+  add(/(?:https?:\/\/|www\.)[^\s]+/gi, 'all');
+  add(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g, 'all');
+  /* g.tec, g.Pype, node.js, e.g., U.S.; not a missing space after a full stop, as in "home.Then" */
+  add(/[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)+\.?/g, 'all', w => {
+    const p = w.replace(/\.$/, '').split('.');
+    return p.length > 2 || p[0].length <= 2 || /\d/.test(w) || /^[a-z]/.test(p[1]);
+  });
+  add(/\b[A-Z][A-Z0-9]+s?\b/g, 'token');                 // acronyms: EEG, BCI, TOEFL
+  add(/\b[A-Za-z]*[a-z][A-Z][A-Za-z]*\b/g, 'token');     // brands and camel case: gPype, PyTorch, PhD
+  add(/\b[A-Za-z]*\d[A-Za-z0-9]*\b/g, 'token');          // with digits: 5G, EEG32
+  state.dict.forEach(w => add(new RegExp('(?<![A-Za-z0-9])' + reEsc(w) + '(?![A-Za-z0-9])', 'gi'), 'all'));
+  return out;
+}
+const ignoreKey = (m, text) => (m.id || m.msg) + '|' + text.slice(m.o, m.o + m.l).trim().toLowerCase();
+function visibleMatches(lt, text) {
+  if (!lt) return [];
+  const spans = nameSpans(text), ign = new Set(state.ltIgnore);
+  return cleanMatches(lt.m, text).filter(m => {
+    if (ign.has(ignoreKey(m, text))) return false;
+    const a = m.o, b = m.o + m.l;
+    return !spans.some(s => a >= s.a && b <= s.b && (s.kind === 'all' || isTokenRule(m)));
+  });
+}
+function wordAround(text, a, b) {
+  while (a > 0 && /[\w.'’-]/.test(text[a - 1])) a--;
+  while (b < text.length && /[\w.'’-]/.test(text[b])) b++;
+  return text.slice(a, b).replace(/^[.'’-]+|[.'’-]+$/g, '');
+}
+function acceptMatch(m, text) {
+  const flagged = text.slice(m.o, m.o + m.l);
+  if (isDictRule(m) && flagged.trim() && !/\s/.test(flagged)) {
+    const w = wordAround(text, m.o, m.o + m.l);
+    if (w && w.length <= 60 && !/\s/.test(w) && /[A-Za-z].*[A-Za-z]/.test(w)) {
+      if (!state.dict.includes(w.toLowerCase())) state.dict.push(w.toLowerCase());
+      return '"' + w + '" is in your dictionary now and will not be marked again';
+    }
+  }
+  const k = ignoreKey(m, text);
+  if (!state.ltIgnore.includes(k)) state.ltIgnore.push(k);
+  return 'Hidden. This suggestion will not come back.';
+}
 function ltLabel(m) {
   if (m.type === 'misspelling') return 'Spelling';
   if (m.type === 'grammar') return 'Grammar';
@@ -2095,11 +2784,12 @@ function ltLabel(m) {
 }
 const ltIsError = m => ['Spelling', 'Grammar', 'Punctuation'].includes(ltLabel(m));
 function showOrig(s) { return s.trim() ? esc(s) : '<span class="muted">(space)</span>'; }
-function issueLI(m, i, text) {
+function issueLI(m, i, text, key) {
   const orig = text.slice(m.o, m.o + m.l);
   const fix = m.rep.length ? '<del>' + showOrig(orig) + '</del> ' + (m.rep[0] ? '<ins>' + esc(m.rep[0]) + '</ins>' : '<span class="muted">(remove)</span>') : '<b>' + showOrig(orig) + '</b>';
   return '<li><span class="n">' + (i + 1) + '</span><span class="itag">' + ltLabel(m) + '</span>' + fix +
-    '<div class="muted small">' + esc(m.msg) + '</div>' + (m.rep.length > 1 ? '<div class="small">Other options: ' + m.rep.slice(1).map(esc).join(', ') + '</div>' : '') + '</li>';
+    '<div class="muted small">' + esc(m.msg) + '</div>' + (m.rep.length > 1 ? '<div class="small">Other options: ' + m.rep.slice(1).map(esc).join(', ') + '</div>' : '') +
+    (key ? '<button class="linkbtn okbtn" data-act="lt-ok" data-key="' + key + '" data-i="' + i + '" title="Hide this and do not mark it again">Not a mistake</button>' : '') + '</li>';
 }
 function ltMarked(text, ms) {
   let out = '', pos = 0;
@@ -2125,15 +2815,15 @@ function ltBoxHTML(key, text, lt) {
   if (st === 'loading') return '<div class="sheet pad"><p class="muted" style="margin:0">Checking grammar and spelling...</p></div>';
   if (st && st.err) return '<div class="sheet pad"><p>' + esc(st.err) + '</p><div class="actions"><button class="btn small" data-act="lt-retry" data-key="' + key + '">Try again</button></div></div>';
   if (!lt) return '<div class="sheet pad"><p class="muted" style="margin:0">Not checked yet.</p><div class="actions"><button class="btn small" data-act="lt-retry" data-key="' + key + '">Check now</button></div></div>';
-  const ms = cleanMatches(lt.m, text);
+  const ms = visibleMatches(lt, text);
   if (!ms.length) return '<div class="sheet pad"><p class="okline" style="margin:0">' + ICON.check + '<span><b>No grammar or spelling problems found.</b> The checker cannot judge your ideas or structure, so the checklist and the examiner feedback below still matter.</span></p></div>';
   const errs = ms.filter(ltIsError).length, sugg = ms.length - errs;
   let h = '<p><span class="hl">' + plural(ms.length, 'thing') + ' to fix</span> <span class="muted small">' +
     (errs ? plural(errs, 'mistake') : '') + (errs && sugg ? ', ' : '') + (sugg ? plural(sugg, 'style suggestion') : '') + '</span></p>';
   h += '<div class="marked">' + ltMarked(text, ms) + '</div>';
-  h += '<ol class="issues">' + ms.map((m, i) => issueLI(m, i, text)).join('') + '</ol>';
+  h += '<ol class="issues">' + ms.map((m, i) => issueLI(m, i, text, key)).join('') + '</ol>';
   h += '<details class="tableview"><summary>Show the corrected text</summary><div class="marked" style="margin-top:8px">' + ltCorrected(text, ms) + '</div></details>';
-  h += '<p class="hint">Checked by LanguageTool, a free grammar checker. It finds spelling and grammar mistakes but not every wrong word choice, so read each suggestion before you accept it.</p>';
+  h += '<p class="hint">Checked by LanguageTool, a free grammar checker. It finds spelling and grammar mistakes but not every wrong word choice, so read each suggestion before you accept it. If it marks a name or something that is right, tap "Not a mistake".</p>';
   return h;
 }
 function refreshLT(key) {
@@ -2156,7 +2846,7 @@ async function runLT(key, text, apply) {
     const m = (j.matches || []).map(x => ({
       o: x.offset, l: x.length, msg: x.message || x.shortMessage || '',
       rep: (x.replacements || []).slice(0, 3).map(v => v.value),
-      type: (x.rule && x.rule.issueType) || '', cat: (x.rule && x.rule.category && x.rule.category.name) || ''
+      type: (x.rule && x.rule.issueType) || '', cat: (x.rule && x.rule.category && x.rule.category.name) || '', id: (x.rule && x.rule.id) || ''
     }));
     apply({ at: Date.now(), lang: state.settings.spelling, m });
     delete LT[key];
@@ -2678,6 +3368,94 @@ function buildNext() {
 function refreshMain() { if (ui.tab === 'practice') { $('#main').innerHTML = viewPractice(); afterPractice(); } }
 
 /* ============================================================
+   Practice: TOEFL Complete the Words
+   ============================================================ */
+/* The C-test pattern: the first sentence stays whole; after it, every second word
+   (names and one-letter words skipped) loses its second half, ten words in all. */
+function cwParts(text) {
+  const firstEnd = text.search(/[.!?]\s/) + 1;
+  const re = /[A-Za-z]+(?:[-'][A-Za-z]+)*/g;
+  const parts = [];
+  let pos = 0, count = 0, blanks = 0, m;
+  while ((m = re.exec(text)) && blanks < 10) {
+    const w = m[0], at = m.index;
+    if (at < firstEnd) continue;
+    const starts = /[.!?]$/.test(text.slice(0, at).trimEnd());
+    if (w.length < 2 || !/^[A-Za-z]+$/.test(w) || (!starts && /^[A-Z]/.test(w))) continue;
+    count++;
+    if (count % 2 === 0) {
+      const keep = Math.floor(w.length / 2);
+      parts.push({ t: text.slice(pos, at) });
+      parts.push({ pre: w.slice(0, keep), miss: w.slice(keep), full: w });
+      pos = at + w.length; blanks++;
+    }
+  }
+  parts.push({ t: text.slice(pos) });
+  return parts;
+}
+const CW_PARTS = {};
+const cwPartsOf = id => CW_PARTS[id] || (CW_PARTS[id] = cwParts((CTEST.find(c => c.id === id) || CTEST[0]).text));
+const cwBest = id => { const l = state.drills.filter(d => d.kind === 'cw' && d.pid === id); return l.length ? Math.max(...l.map(d => d.correct)) : null; };
+function startCW(id) {
+  const c = id ? CTEST.find(x => x.id === id) : pickFrom(CTEST);
+  if (!c) return;
+  if (SP) { sCleanup(true); SP = null; }
+  if (WR.running) wPause();
+  BD = null; LS = null;
+  CW = { id: c.id, vals: [], checked: false, t0: Date.now(), focus: true };
+  ui.tab = 'practice'; ui.pmode = 'reading'; ui.pv = 'cw';
+  render(); scrollTop();
+}
+function updateCWTimer() {
+  const el = $('#cw-timer'); if (!el || !CW || CW.checked) return;
+  el.innerHTML = mmss((Date.now() - CW.t0) / 1000) + '<small>on this text</small>';
+}
+function viewCW() {
+  const c = CTEST.find(x => x.id === CW.id) || CTEST[0], parts = cwPartsOf(c.id);
+  let h = '<div class="crumbs"><button class="linkbtn" data-act="p-back">All reading</button><span class="muted">Text ' + (CTEST.indexOf(c) + 1) + ' of ' + CTEST.length + '</span></div>';
+  h += '<h2>Complete the words</h2><p class="muted">' + esc(c.title) + '. Type the missing letters of each word. The first sentence is complete, so read it first to get the topic.</p>';
+  if (!CW.checked) h += '<div class="timerbar"><div class="timer" id="cw-timer"></div></div>';
+  let k = -1, score = 0;
+  const body = parts.map(p => {
+    if (p.miss == null) return esc(p.t);
+    k++;
+    const v = CW.vals[k] || '', n = p.miss.length, ok = v.trim().toLowerCase() === p.miss.toLowerCase();
+    if (ok) score++;
+    const cls = CW.checked ? (ok ? ' right' : ' wrong') : '';
+    return '<span class="cw">' + esc(p.pre) + '<input class="cwi' + cls + '" data-cw="' + k + '" maxlength="' + n + '" style="width:calc(' + n + 'ch + ' + (n * 0.06).toFixed(2) + 'em + 12px)" value="' + esc(v) + '"' +
+      ' autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Word ' + (k + 1) + ': ' + esc(p.pre) + ', then ' + plural(n, 'letter') + '"' + (CW.checked ? ' disabled' : '') + '>' +
+      (CW.checked && !ok ? '<span class="cwfix" aria-label="Answer: ' + esc(p.full) + '">' + esc(p.full) + '</span>' : '') + '</span>';
+  }).join('');
+  h += '<div class="sheet pad cwtext">' + body + '</div>';
+  if (CW.checked) {
+    const total = k + 1;
+    h += '<p class="bigline" style="margin-top:16px">' + score + ' of ' + total + ' correct' + (CW.secs ? ' <span class="muted small">in ' + mmss(CW.secs) + '</span>' : '') + '</p>' +
+      '<p class="muted">' + (score === total ? 'Every word right. Nice.' : 'Green boxes are right. Each wrong one shows the full word next to it. Notice which kind of word you missed: small grammar words, word endings, or spelling.') + '</p>' +
+      '<div class="actions"><button class="btn primary" data-act="cw-next">Next text</button><button class="btn" data-act="cw-open" data-id="' + c.id + '">Try this one again</button></div>';
+  } else {
+    h += '<div class="actions"><button class="btn primary" data-act="cw-check">Check answers</button></div>' +
+      '<p class="hint">Each box fits exactly the missing letters, and the cursor jumps to the next word when a box is full. Spelling counts, just like in the test.</p>';
+  }
+  return h;
+}
+function cwCheck() {
+  if (!CW || CW.checked) return;
+  $$('.cwi').forEach(el => { CW.vals[+el.dataset.cw] = el.value; });
+  const miss = cwPartsOf(CW.id).filter(p => p.miss != null);
+  const correct = miss.filter((p, k) => (CW.vals[k] || '').trim().toLowerCase() === p.miss.toLowerCase()).length;
+  const secs = Math.round((Date.now() - CW.t0) / 1000);
+  CW.checked = true; CW.secs = secs;
+  state.drills.push({ id: uid(), date: todayISO(), kind: 'cw', pid: CW.id, correct, total: miss.length, secs });
+  markUsed(CW.id);
+  addLog({ skill: 'reading', min: Math.max(1, Math.round(secs / 60)), src: 'practice', note: 'TOEFL Complete the Words: ' + correct + ' of ' + miss.length });
+  const t = todayISO();
+  if (state.drills.filter(d => d.kind === 'cw' && d.date === t).length % 2 === 0) autoTick('r:cw', false);
+  if (correct === miss.length) beep(988, 0.14);
+  save(); renderTop(); refreshMain(); scrollTop();
+  announce(correct + ' of ' + miss.length + ' correct');
+}
+
+/* ============================================================
    Practice: speaking
    ============================================================ */
 function openSpeaking(task) {
@@ -2875,12 +3653,170 @@ function updateSpeakUI() {
    Words
    ============================================================ */
 const INTERVAL = { 2: 1, 3: 3, 4: 7, 5: 14 };
+
+/* ---------- the word bank ---------- */
+const BANK = [];
+const BANK_BY = new Map();
+WORDSETS.forEach(S => S.words.forEach(w => {
+  const k = w[0].toLowerCase();
+  if (BANK_BY.has(k)) return;
+  const e = { term: w[0], gr: w[1], en: w[2], ex: w[3], set: S.id };
+  BANK.push(e); BANK_BY.set(k, e);
+}));
+const SET_BY = Object.fromEntries(WORDSETS.map(S => [S.id, S]));
+const haveWords = () => new Set(state.words.map(w => w.term.toLowerCase()));
+const setCount = (S, have) => S.words.filter(w => have.has(w[0].toLowerCase())).length;
+function nextNew(n, setId, skip) {
+  const have = haveWords(), out = [];
+  for (const e of BANK) {
+    if (out.length >= n) break;
+    const k = e.term.toLowerCase();
+    if ((setId && e.set !== setId) || have.has(k) || (skip && skip.has(k))) continue;
+    out.push(e);
+  }
+  return out;
+}
+const newToday = () => { const t = todayISO(); return state.words.filter(w => w.src === 'bank' && w.added === t && !w.kn).length; };
+/* a typed answer also counts when it is the US or UK form named in the definition, e.g. "(US: analyze)" */
+function answersFor(term, def) {
+  const out = [term];
+  String(def || '').replace(/\((?:[^()]*?;\s*)?(?:US|UK)(?: also)?: ([^()]+)\)/g, (_, v) => { out.push(v.trim()); return ''; });
+  return out;
+}
+const isAnswer = (val, term, def) => answersFor(term, def).some(a => normAns(a) === normAns(val));
+const hintFor = t => 'Starts with "' + t[0] + '", ' + (/\s/.test(t.trim()) ? plural(t.trim().split(/\s+/).length, 'word') : plural(t.replace(/[^A-Za-z]/g, '').length, 'letter'));
+const focusSel = sel => { const el = $(sel); if (el) el.focus({ preventScroll: true }); };
+const sayBtn = (text, cls) => tts.ok ? '<button class="iconbtn' + (cls ? ' ' + cls : '') + '" data-act="say" data-text="' + esc(text) + '" aria-label="Hear ' + esc(text) + '">' + ICON.sound + '</button>' : '';
+function exampleHTML(ex, term) {
+  const t = term.trim();
+  try { return esc(ex).replace(new RegExp('\\b' + reEsc(esc(t)) + '[A-Za-z]*', 'gi'), m => '<b>' + m + '</b>'); } catch (e) { return esc(ex); }
+}
+const resultHTML = (ok, given, term) => ok
+  ? '<p class="feedback ok center">' + ICON.check + '<span>Correct: <b>' + esc(term) + '</b></span></p>'
+  : '<p class="feedback no center">' + ICON.x + '<span>' + (given ? 'You wrote <del>' + esc(given) + '</del>. ' : '') + 'The word is <b class="ans">' + esc(term) + '</b></span></p>';
+function addBankWord(e, knew) {
+  const k = e.term.toLowerCase();
+  if (state.words.some(w => w.term.toLowerCase() === k)) return;
+  const t = todayISO();
+  state.words.unshift({ id: uid(), term: e.term, meaning: e.gr, def: e.en, example: e.ex, box: knew ? 4 : 1, due: addDays(t, knew ? 7 : 1), added: t, reviews: 0, lapses: 0, src: 'bank', set: e.set, kn: knew ? 1 : 0 });
+}
+
+/* ---------- learning new words: cards first, then type each one ---------- */
+function startLearn(setId) {
+  const n = state.settings.newWords, list = nextNew(n, setId);
+  if (!list.length) { toast(setId ? 'You have every word in this set already' : 'You have learned every word in the app'); return; }
+  if (WV && !WV.finished) WV = null;
+  LN = { setId: setId || '', queue: list.map(e => e.term), i: 0, phase: 'cards', target: n, learned: [], knew: [],
+    seen: new Set(list.map(e => e.term.toLowerCase())), check: [], ci: 0, res: null, given: '', first: {}, t0: Date.now(), logged: false };
+  ui.tab = 'words';
+  render(); scrollTop();
+  lnSay(); focusSel('[data-act="n-learn"]');
+}
+const lnEntry = () => LN ? BANK_BY.get(String(LN.phase === 'check' ? LN.check[LN.ci] : LN.queue[LN.i]).toLowerCase()) : null;
+function lnSay() { const e = lnEntry(); if (e && LN.phase === 'cards' && state.settings.speakAloud && tts.ok) { ensureAudio(); say(e.term); } }
+function lnCard(knew) {
+  const e = lnEntry(); if (!e || LN.phase !== 'cards') return;
+  addBankWord(e, knew);
+  (knew ? LN.knew : LN.learned).push(e.term);
+  if (knew && LN.queue.length < LN.target * 2) {
+    const more = nextNew(1, LN.setId, LN.seen)[0];
+    if (more) { LN.queue.push(more.term); LN.seen.add(more.term.toLowerCase()); }
+  }
+  save();
+  LN.i++;
+  if (LN.i < LN.queue.length) { renderMain(); lnSay(); focusSel('[data-act="n-learn"]'); return; }
+  if (LN.learned.length) {
+    LN.phase = 'check'; LN.check = shuffle(LN.learned); LN.ci = 0; LN.res = null; LN.given = '';
+    renderMain(); scrollTop(); focusSel('#n-inp');
+  } else finishLearn();
+}
+function lnResult(ok, given) {
+  const e = lnEntry(); if (!e || LN.res) return;
+  const k = e.term.toLowerCase();
+  LN.res = ok ? 'ok' : 'no'; LN.given = given;
+  if (!(k in LN.first)) {
+    LN.first[k] = ok;
+    if (!ok) LN.check.push(e.term);   // one more try at the end
+  }
+  if (ok) beep(988, 0.1);
+  renderMain(); focusSel('#n-next');
+  announce(ok ? 'Correct' : 'The word is ' + e.term);
+}
+function lnCheck() {
+  if (!LN || LN.phase !== 'check' || LN.res) return;
+  const el = $('#n-inp'), val = el ? el.value : '';
+  if (!val.trim()) { toast('Type the word first, or tap Show me'); return; }
+  const e = lnEntry();
+  lnResult(isAnswer(val, e.term, e.en), val);
+}
+function lnNext() {
+  if (!LN || LN.phase !== 'check' || !LN.res) return;
+  LN.ci++; LN.res = null; LN.given = '';
+  if (LN.ci >= LN.check.length) { finishLearn(); return; }
+  renderMain(); focusSel('#n-inp');
+}
+function finishLearn() {
+  if (!LN) return;
+  LN.phase = 'done';
+  if (!LN.logged && (LN.learned.length || LN.knew.length)) {
+    LN.logged = true;
+    LN.mins = clamp(Math.round((Date.now() - LN.t0) / 60000), 1, 90);
+    addLog({ skill: 'vocab', min: LN.mins, src: 'practice', note: 'New words: ' + LN.learned.length + ' learned' + (LN.knew.length ? ', ' + LN.knew.length + ' already known' : '') });
+    if (LN.learned.length) { setHabit('learn', true, { log: false }); autoTick('words:learn', false); }
+    save(); renderTop();
+  }
+  renderMain(); renderTabs(); scrollTop();
+}
+function viewLearn() {
+  const crumbs = right => '<div class="crumbs"><button class="linkbtn" data-act="n-end">' + (LN.phase === 'done' ? 'Back to words' : 'Stop here') + '</button>' + (right ? '<span class="muted">' + right + '</span>' : '') + '</div>';
+  if (LN.phase === 'done') {
+    const tried = Object.keys(LN.first).length, firstOk = Object.values(LN.first).filter(Boolean).length;
+    let h = crumbs('') + '<div class="sheet pad donecard"><span class="wicon" style="--c:var(--s-vocab)">' + ICON.spark + '</span>' +
+      '<h2>' + (LN.learned.length ? plural(LN.learned.length, 'new word') + ' learned' : 'Done') + '</h2><p>' +
+      (tried ? firstOk + ' of ' + tried + ' right on the first try. ' : '') +
+      (LN.learned.length ? 'They come back for review tomorrow and then after a few more days, so they stay with you.' : '') +
+      (LN.knew.length ? ' ' + (LN.knew.length === 1 ? 'The word you already knew comes' : 'The ' + LN.knew.length + ' words you already knew come') + ' back in a week, to make sure.' : '') + '</p>' +
+      '<div class="actions"><button class="btn primary" data-act="n-more">Learn ' + LN.target + ' more</button><button class="btn" data-act="n-end">Back to words</button></div></div>';
+    if (LN.learned.length) h += '<h3 class="sec">Your new words</h3><div class="sheet">' + LN.learned.map(t => {
+      const e = BANK_BY.get(t.toLowerCase());
+      return '<div class="wrow"><div><div class="w-term">' + esc(e.term) + '</div><div class="w-mean" lang="el">' + esc(e.gr) + '</div><div class="w-ex">' + esc(e.ex) + '</div></div><span></span><div>' + sayBtn(e.term) + '</div></div>';
+    }).join('') + '</div>';
+    return h;
+  }
+  const e = lnEntry(), S = SET_BY[e.set];
+  if (LN.phase === 'cards') {
+    const n = LN.queue.length;
+    return crumbs('Word ' + (LN.i + 1) + ' of ' + n) + '<h2 class="sr-only">New words</h2>' +
+      '<div class="lprog" aria-hidden="true"><i style="width:' + (LN.i / n * 100) + '%"></i></div>' +
+      '<div class="sheet flash learn"><p class="lset">' + esc(S.name) + '</p><div class="term">' + esc(e.term) + '</div>' + sayBtn(e.term, 'big') +
+      '<div class="meaning" lang="el">' + esc(e.gr) + '</div><p class="def">' + esc(e.en) + '</p><p class="ex">' + exampleHTML(e.ex, e.term) + '</p>' +
+      '<div class="actions center"><button class="btn" data-act="n-knew">I know it already</button><button class="btn primary" data-act="n-learn">' + (LN.i + 1 < n ? 'Next word' : 'Done, now test me') + '</button></div></div>' +
+      '<p class="hint" style="text-align:center">Say the word out loud and read the example, then go on. At the end you type each word once.</p>';
+  }
+  const n = LN.check.length;
+  let h = crumbs('Check ' + (LN.ci + 1) + ' of ' + n) + '<h2 class="sr-only">Type the words</h2>' +
+    '<div class="lprog" aria-hidden="true"><i style="width:' + (LN.ci / n * 100) + '%"></i></div>' +
+    '<div class="sheet flash learn"><p class="lset">Type the English word</p><div class="meaning" lang="el">' + esc(e.gr) + '</div><p class="def">' + esc(e.en) + '</p><p class="ex">' + esc(blankOut(e.ex, e.term)) + '</p>';
+  if (!LN.res) {
+    h += '<label class="sr-only" for="n-inp">The English word</label><input id="n-inp" class="inp typein" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + esc(hintFor(e.term)) + '">' +
+      '<div class="actions center"><button class="btn" data-act="n-idk">Show me</button><button class="btn primary" data-act="n-check">Check</button></div>';
+  } else {
+    h += resultHTML(LN.res === 'ok', LN.given, e.term) + '<div class="actions center">' +
+      (LN.res === 'no' && LN.given ? '<button class="btn ghost" data-act="n-self">I was right</button>' : '') +
+      '<button class="btn primary" id="n-next" data-act="n-next">' + (LN.ci + 1 < n ? 'Next' : 'Finish') + '</button>' + sayBtn(e.term) + '</div>';
+  }
+  return h + '</div>';
+}
+
+/* ---------- reviewing: flashcards, or typing the word ---------- */
 function startReview() {
   const due = shuffle(dueWords().map(w => w.id));
   if (!due.length) { toast('Nothing due right now'); return; }
-  WV = { queue: due, i: 0, revealed: false, known: 0, answers: 0, requeued: new Set(), t0: Date.now(), finished: false };
+  LN = null;
+  WV = { queue: due, i: 0, revealed: false, res: null, given: '', known: 0, answers: 0, requeued: new Set(), t0: Date.now(), finished: false };
   ui.tab = 'words';
   render(); scrollTop();
+  focusSel('#v-inp');
 }
 function answerWord(known) {
   const id = WV.queue[WV.i], w = state.words.find(x => x.id === id);
@@ -2897,9 +3833,9 @@ function answerWord(known) {
       if (!WV.requeued.has(id)) { WV.requeued.add(id); WV.queue.push(id); }
     }
   }
-  WV.i++; WV.revealed = false;
+  WV.i++; WV.revealed = false; WV.res = null; WV.given = '';
   if (WV.i >= WV.queue.length) finishReview();
-  else { save(); renderMain(); renderTabs(); }
+  else { save(); renderMain(); renderTabs(); focusSel('#v-inp'); }
 }
 function finishReview() {
   if (!WV) return;
@@ -2917,63 +3853,113 @@ function blankOut(text, term) {
   const t = term.trim(); if (!t) return text;
   try { return text.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '_____'); } catch (e) { return text; }
 }
+const curWord = () => WV ? state.words.find(x => x.id === WV.queue[WV.i]) : null;
+const typeMode = w => ui.wordsDir === 'type' && w && !!(w.meaning || w.def);
+function reviewTyped(val) {
+  const w = curWord(); if (!w || WV.res) return;
+  const ok = val != null && isAnswer(val, w.term, w.def);
+  WV.res = ok ? 'ok' : 'no'; WV.given = val || ''; WV.revealed = true;
+  if (ok) beep(988, 0.1);
+  renderMain(); focusSel('#v-next');
+  announce(ok ? 'Correct' : 'The word is ' + w.term);
+}
 function viewReview() {
   let id = WV.queue[WV.i], w = state.words.find(x => x.id === id);
   while (!w && WV.i < WV.queue.length - 1) { WV.i++; id = WV.queue[WV.i]; w = state.words.find(x => x.id === id); }
   if (!w) { setTimeout(finishReview, 0); return ''; }
-  const termFirst = ui.wordsDir === 'term' || !w.meaning;
+  const head = '<div class="crumbs"><button class="linkbtn" data-act="v-end">End review</button><span class="muted">' + (WV.i + 1) + ' of ' + WV.queue.length + '</span></div><h2 class="sr-only">Review words</h2>';
+  const def = w.def ? '<p class="def">' + esc(w.def) + '</p>' : '';
+  if (typeMode(w)) {
+    let h = head + '<div class="sheet flash learn" style="margin-top:14px"><p class="lset">Type the English word</p>' +
+      (w.meaning ? '<div class="meaning">' + esc(w.meaning) + '</div>' : '') + def + (w.example ? '<p class="ex">' + esc(blankOut(w.example, w.term)) + '</p>' : '');
+    if (!WV.res) {
+      h += '<label class="sr-only" for="v-inp">The English word</label><input id="v-inp" class="inp typein" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + esc(hintFor(w.term)) + '">' +
+        '<div class="actions center"><button class="btn" data-act="v-idk">Show me</button><button class="btn primary" data-act="v-check">Check</button></div>';
+    } else {
+      h += resultHTML(WV.res === 'ok', WV.given, w.term) + '<div class="actions center">' +
+        (WV.res === 'no' && WV.given ? '<button class="btn ghost" data-act="v-self">I was right</button>' : '') +
+        '<button class="btn primary" id="v-next" data-act="v-next">Next</button>' + sayBtn(w.term) + '</div>';
+    }
+    return h + '</div><p class="hint" style="text-align:center">Enter checks your answer, and Enter again goes to the next word.</p>';
+  }
+  const termFirst = ui.wordsDir !== 'meaning' || !w.meaning;
   const showTerm = termFirst || WV.revealed;
   const front = termFirst
     ? '<div class="term">' + esc(w.term) + '</div>'
-    : '<div class="meaning">' + esc(w.meaning) + '</div>' + (w.example ? '<p class="ex">' + esc(blankOut(w.example, w.term)) + '</p>' : '');
+    : '<div class="meaning">' + esc(w.meaning) + '</div>' + def + (w.example ? '<p class="ex">' + esc(blankOut(w.example, w.term)) + '</p>' : '');
   const back = termFirst
-    ? (w.meaning ? '<div class="meaning">' + esc(w.meaning) + '</div>' : '') + (w.example ? '<p class="ex">' + esc(w.example) + '</p>' : '') + (!w.meaning && !w.example ? '<p class="muted">No meaning saved. Did you know it?</p>' : '')
+    ? (w.meaning ? '<div class="meaning">' + esc(w.meaning) + '</div>' : '') + def + (w.example ? '<p class="ex">' + esc(w.example) + '</p>' : '') + (!w.meaning && !w.example && !w.def ? '<p class="muted">No meaning saved. Did you know it?</p>' : '')
     : '<div class="term">' + esc(w.term) + '</div>' + (w.example ? '<p class="ex">' + esc(w.example) + '</p>' : '');
-  const sayBtn = showTerm && tts.ok ? '<button class="iconbtn" data-act="say" data-text="' + esc(w.term) + '" aria-label="Hear ' + esc(w.term) + '">' + ICON.sound + '</button>' : '';
-  return '<div class="crumbs"><button class="linkbtn" data-act="v-end">End review</button><span class="muted">' + (WV.i + 1) + ' of ' + WV.queue.length + '</span></div>' +
-    '<h2 class="sr-only">Review words</h2>' +
+  return head +
     '<div class="sheet flash" style="margin-top:14px">' + front + (WV.revealed ? '<hr>' + back : '') +
     '<div class="actions center">' + (WV.revealed
       ? '<button class="btn" data-act="v-no">Didn\'t know</button><button class="btn primary" data-act="v-yes">Knew it</button>'
-      : '<button class="btn primary" data-act="v-reveal">Show answer</button>') + sayBtn + '</div></div>' +
+      : '<button class="btn primary" data-act="v-reveal">Show answer</button>') + (showTerm ? sayBtn(w.term) : '') + '</div></div>' +
     '<p class="hint" style="text-align:center">Keyboard: space shows the answer, 1 for didn\'t know, 2 for knew it.</p>';
 }
 function wordListHTML() {
   const q = ui.wordQuery.trim().toLowerCase();
-  const list = state.words.filter(w => !q || w.term.toLowerCase().includes(q) || (w.meaning || '').toLowerCase().includes(q));
-  if (!state.words.length) return '<p class="muted">No words yet.</p>';
+  const list = state.words.filter(w => !q || w.term.toLowerCase().includes(q) || (w.meaning || '').toLowerCase().includes(q) || (w.def || '').toLowerCase().includes(q));
+  if (!state.words.length) return '<p class="muted">No words yet. Start with the new words above.</p>';
   if (!list.length) return '<p class="muted">No words match "' + esc(ui.wordQuery) + '".</p>';
-  return '<div class="sheet">' + list.slice(0, 300).map(w => {
+  return '<div class="sheet">' + list.slice(0, 400).map(w => {
     const boxes = '<span class="boxes" role="img" aria-label="Level ' + w.box + ' of 5">' + [1, 2, 3, 4, 5].map(b => '<i class="' + (b <= w.box ? 'on' : '') + '"></i>').join('') + '</span>';
     return '<div class="wrow"><div><div class="w-term">' + esc(w.term) + '</div>' + (w.meaning ? '<div class="w-mean">' + esc(w.meaning) + '</div>' : '') + (w.example ? '<div class="w-ex">' + esc(w.example) + '</div>' : '') + '</div>' +
-      boxes + '<div>' + (tts.ok ? '<button class="iconbtn" data-act="say" data-text="' + esc(w.term) + '" aria-label="Hear ' + esc(w.term) + '">' + ICON.sound + '</button>' : '') +
+      boxes + '<div>' + sayBtn(w.term) +
       '<button class="iconbtn" data-act="word-del" data-id="' + w.id + '" aria-label="Delete ' + esc(w.term) + '">' + ICON.trash + '</button></div></div>';
   }).join('') + '</div>';
 }
+const DIR_HINT = {
+  term: 'You see the English word and remember what it means. The quickest way.',
+  meaning: 'You see the meaning and say the English word. Harder, and closer to what speaking needs.',
+  type: 'You see the meaning and type the English word. The best practice for spelling.'
+};
 function viewWords() {
+  if (LN) return viewLearn();
   if (WV && !WV.finished) return viewReview();
   let h = '<h2>Words</h2>';
   if (WV && WV.finished) {
-    h += '<div class="sheet pad"><p style="margin:0"><b>Review done.</b> ' + WV.known + ' of ' + plural(WV.answers, 'answer') + ' known, ' + WV.mins + ' min. Words you missed come back tomorrow.</p></div>';
+    h += '<div class="sheet pad" style="margin-top:14px"><p style="margin:0"><b>Review done.</b> ' + WV.known + ' of ' + plural(WV.answers, 'answer') + ' right, ' + WV.mins + ' min. Words you missed come back tomorrow.</p></div>';
     WV = null;
   }
-  const due = dueWords().length;
-  h += '<div class="duebox" style="margin-top:14px">' + (due
-    ? '<p style="margin:0"><span class="hl">' + plural(due, 'word') + ' due today</span></p>'
-    : '<p class="muted" style="margin:0">' + (state.words.length ? 'Nothing due today. Add new words as you meet them.' : 'Add words and phrases you look up. Each one comes back for review just before you would forget it.') + '</p>') +
-    (due ? '<button class="btn primary" data-act="v-start">Review now</button>' : '') + '</div>';
-  h += '<div class="seg" role="group" aria-label="Review direction" style="margin-top:14px">' +
-    '<button data-act="v-dir" data-dir="term" aria-pressed="' + (ui.wordsDir === 'term') + '">Word first</button>' +
-    '<button data-act="v-dir" data-dir="meaning" aria-pressed="' + (ui.wordsDir === 'meaning') + '">Meaning first</button></div>' +
-    '<p class="hint" style="margin-top:2px">Meaning first is harder: you have to produce the English word, which is what writing and speaking need.</p>';
-  h += '<h3 class="sec">Add a word</h3><form class="sheet pad" data-form="word" autocomplete="off">' +
-    '<label class="fld" style="margin-top:0">Word or phrase<input class="inp" id="w-term" name="term" required maxlength="120" autocapitalize="off" placeholder="e.g. take something into account"></label>' +
-    '<label class="fld">Meaning (Greek or English)<input class="inp" name="meaning" maxlength="200"></label>' +
-    '<label class="fld">Example sentence (optional)<input class="inp" name="example" maxlength="300"></label>' +
-    '<div class="actions"><button class="btn primary" type="submit">Add word</button></div></form>';
+  const due = dueWords().length, n = state.settings.newWords, today = newToday(), next = nextNew(1)[0];
+  let a = '<div class="sheet pad wcard" style="--c:var(--s-vocab)"><span class="wicon">' + ICON.spark + '</span><h3>New words</h3>';
+  if (!next) a += '<p>You have learned every word in the app. Add your own below.</p>';
+  else {
+    a += '<p>' + (today >= n ? '<b>Done for today:</b> ' + plural(today, 'new word') + '. More only if you have time.'
+      : (today ? plural(today, 'new word') + ' so far today. ' : '') + n + ' a day, each with its Greek meaning, an example and a quick spelling check.') + '</p>' +
+      '<p class="small muted" style="margin-top:4px">Next up: ' + esc(SET_BY[next.set].name) + '</p>' +
+      '<div class="actions"><button class="btn' + (today >= n ? '' : ' primary') + '" data-act="n-start">' + (today >= n ? 'Learn ' + n + ' more' : 'Learn ' + n + ' new words') + '</button></div>';
+  }
+  a += '</div>';
+  const segB = (dir, label) => '<button data-act="v-dir" data-dir="' + dir + '" aria-pressed="' + (ui.wordsDir === dir) + '">' + label + '</button>';
+  const b = '<div class="sheet pad wcard" style="--c:var(--accent)"><span class="wicon">' + ICON.repeat + '</span><h3>Review</h3>' +
+    (due ? '<p><span class="hl">' + plural(due, 'word') + ' due today</span></p>' : '<p>' + (state.words.length ? 'Nothing due right now. Each word comes back just before you would forget it.' : 'The words you learn come back here for review.') + '</p>') +
+    '<div class="seg" role="group" aria-label="How to review">' + segB('term', 'Word first') + segB('meaning', 'Meaning first') + segB('type', 'Type it') + '</div>' +
+    '<p class="hint" style="margin-top:2px">' + DIR_HINT[ui.wordsDir] + '</p>' +
+    (due ? '<div class="actions"><button class="btn primary" data-act="v-start">Review now</button></div>' : '') + '</div>';
+  h += '<div class="wgrid">' + a + b + '</div>';
+
+  const have = haveWords(), got = BANK.filter(e => have.has(e.term.toLowerCase())).length;
+  h += '<h3 class="sec">Word sets</h3><p class="muted">' + got + ' of ' + BANK.length + ' words learned. Chosen for the two exams: the most frequent academic words, linking words, chart language, campus English, the essay topics that come up most, and traps for Greek speakers.</p>';
+  h += '<div class="sheet">' + WORDSETS.map(S => {
+    const d = setCount(S, have), tot = S.words.length, all = d >= tot;
+    return '<div class="setrow"><div><h4>' + esc(S.name) + '</h4><p>' + esc(S.about) + '</p>' +
+      '<div class="setprog"><span class="pbar" role="img" aria-label="' + d + ' of ' + tot + ' learned"><i style="width:' + (d / tot * 100) + '%"></i></span><span class="small muted">' + d + ' of ' + tot + '</span></div></div>' +
+      '<button class="btn small" data-act="n-start" data-set="' + S.id + '"' + (all ? ' disabled' : '') + '>' + (all ? 'Done' : 'Learn') + '</button>' +
+      '<details class="tableview setlist"><summary>See the words</summary><ul class="setwords">' + S.words.map(w =>
+        '<li' + (have.has(w[0].toLowerCase()) ? ' class="got"' : '') + '><b>' + esc(w[0]) + '</b> <span lang="el">' + esc(w[1]) + '</span></li>').join('') + '</ul></details></div>';
+  }).join('') + '</div>';
+
   h += '<h3 class="sec">Your words (' + state.words.length + ')</h3>' +
     (state.words.length > 6 ? '<label class="sr-only" for="w-search">Search your words</label><input class="inp" id="w-search" type="search" placeholder="Search" value="' + esc(ui.wordQuery) + '" style="margin-bottom:10px">' : '') +
     '<div id="wlist">' + wordListHTML() + '</div>';
+  h += '<details class="sheet pad addword"' + (ui.addOpen ? ' open' : '') + '><summary>Add a word of your own</summary>' +
+    '<form data-form="word" autocomplete="off"><p class="hint" style="margin-top:6px">For words you meet in your reading or at work.</p>' +
+    '<label class="fld">Word or phrase<input class="inp" id="w-term" name="term" required maxlength="120" autocapitalize="off" placeholder="e.g. take something into account"></label>' +
+    '<label class="fld">Meaning (Greek or English)<input class="inp" name="meaning" maxlength="200"></label>' +
+    '<label class="fld">Example sentence (optional)<input class="inp" name="example" maxlength="300"></label>' +
+    '<div class="actions"><button class="btn primary" type="submit">Add word</button></div></form></details>';
   return h;
 }
 
@@ -3015,10 +4001,12 @@ function viewProgress() {
   h += blocks || '<p class="muted" style="margin-top:12px">No scores yet. Your first full tests are in chapter 2.</p>';
 
   const ess = state.essays.length, drills = state.drills.filter(d => d.kind === 'build'), lessonsDone = LESSONS.filter(L => state.lessons[L.id]).length;
-  const withFb = state.essays.filter(e => e.fb).length;
+  const withFb = state.essays.filter(e => e.fb).length, cws = state.drills.filter(d => d.kind === 'cw');
+  const have = haveWords(), bankGot = BANK.filter(e => have.has(e.term.toLowerCase())).length;
   h += '<h3 class="sec">Practice done</h3><p>' + lessonsDone + ' of ' + LESSONS.length + ' lessons, ' + plural(ess, 'piece') + ' of writing' + (withFb ? ' (' + withFb + ' marked by Claude)' : '') +
     (drills.length ? ', ' + plural(drills.length, 'Build a Sentence set') + ' (best ' + Math.max(...drills.map(d => d.correct)) + ' of 10)' : '') +
-    ', ' + plural(state.words.length, 'word') + ' in your list.</p>';
+    (cws.length ? ', ' + plural(cws.length, 'Complete the Words text') + ' (best ' + Math.max(...cws.map(d => d.correct)) + ' of 10)' : '') +
+    ', ' + plural(state.words.length, 'word') + ' in your list (' + bankGot + ' of ' + BANK.length + ' from the word sets).</p>';
 
   const recent = state.log.slice().sort((a, b) => (b.date.localeCompare(a.date)) || ((b.ts || 0) - (a.ts || 0))).slice(0, 25);
   h += '<h3 class="sec">Recent activity</h3>' + (recent.length ? '<div class="sheet">' + recent.map(l =>
@@ -3091,11 +4079,18 @@ function openSettings() {
     '<div class="row"><label class="fld">TOEFL target<select class="inp" name="toeflTarget">' + opts(1, 6, s.toeflTarget) + '</select></label>' +
     '<label class="fld">IELTS target<select class="inp" name="ieltsTarget">' + opts(4, 9, s.ieltsTarget) + '</select></label></div>' +
     '<p class="hint">Many PhD programs ask for roughly TOEFL 4.5 to 5.0 (about 90 to 100 on the old 0 to 120 scale) or IELTS 6.5 to 7.0. Check each lab\'s page and set the highest one you need.</p>' +
-    '<label class="fld">Daily study goal (minutes)<input class="inp" type="number" name="dailyGoal" min="10" max="600" step="5" value="' + s.dailyGoal + '" required></label>' +
-    '<label class="checkrow"><input type="checkbox" class="check" name="speakAloud"' + (s.speakAloud ? ' checked' : '') + '>Read speaking questions aloud</label>' +
+    '<div class="row"><label class="fld">Daily study goal (minutes)<input class="inp" type="number" name="dailyGoal" min="10" max="600" step="5" value="' + s.dailyGoal + '" required></label>' +
+    '<label class="fld">New words per day<select class="inp" name="newWords">' + NEW_WORD_OPTIONS.map(n => '<option value="' + n + '"' + (s.newWords === n ? ' selected' : '') + '>' + n + '</option>').join('') + '</select></label></div>' +
+    '<label class="checkrow"><input type="checkbox" class="check" name="speakAloud"' + (s.speakAloud ? ' checked' : '') + '>Read speaking questions and new words aloud</label>' +
+    '<h3 class="sec">Look</h3>' +
+    '<div class="row"><label class="fld">Your name<input class="inp" name="name" maxlength="30" value="' + esc(s.name) + '" placeholder="For the greeting"></label>' +
+    '<label class="fld">Background<select class="inp" name="bg"><option value="sky"' + (s.bg === 'sky' ? ' selected' : '') + '>Soft colours</option><option value="plain"' + (s.bg === 'plain' ? ' selected' : '') + '>Plain</option></select></label></div>' +
     '<h3 class="sec">Corrections</h3>' +
     '<label class="fld">Spelling<select class="inp" name="spelling"><option value="en-GB"' + (s.spelling === 'en-GB' ? ' selected' : '') + '>British (colour, organise)</option><option value="en-US"' + (s.spelling === 'en-US' ? ' selected' : '') + '>American (color, organize)</option></select></label>' +
     '<p class="hint">Both exams accept either, as long as you stay consistent. The free grammar check is done by LanguageTool, so your text is sent to their servers when it is checked.</p>' +
+    '<p class="fld" style="margin-top:14px">Words the checker accepts</p>' +
+    '<div class="dictlist" id="dictlist">' + dictHTML() + '</div>' +
+    (state.ltIgnore.length ? '<p class="small" id="ign-line" style="margin:8px 0 0">' + plural(state.ltIgnore.length, 'hidden suggestion') + '. <button type="button" class="linkbtn" data-act="ign-clear">Show them again</button></p>' : '') +
     '<label class="fld">Claude API key (optional)<input class="inp" type="password" name="apiKey" autocomplete="off" spellcheck="false" placeholder="' + (key ? 'Saved key ending in ' + esc(key.slice(-4)) + '. Paste a new one to replace it.' : 'sk-ant-...') + '"></label>' +
     (key ? '<p class="small" style="margin:6px 0 0">A key is saved. <button type="button" class="linkbtn" data-act="key-remove">Remove it</button></p>' : '') +
     '<p class="hint">For band scores and an improved version of your writing. Create a key at <a href="' + LINKS.claudeKeys + '" target="_blank" rel="noopener">platform.claude.com</a> and add a few dollars of credit. The key stays in this browser, is sent only to Anthropic, and is never included in backups.</p>' +
@@ -3104,6 +4099,10 @@ function openSettings() {
     '<div class="actions"><button type="button" class="btn small" data-act="export">Export backup</button><button type="button" class="btn small" data-act="import">Import backup</button><button type="button" class="btn small danger" data-act="reset">Reset everything</button></div>' +
     '<input type="file" id="import-file" accept="application/json,.json" hidden>' +
     '<div class="actions end" style="margin-top:24px"><button type="button" class="btn ghost" data-act="dlg-close">Cancel</button><button type="submit" class="btn primary">Save settings</button></div></form>');
+}
+function dictHTML() {
+  if (!state.dict.length) return '<p class="hint" style="margin:0">None yet. Names like g.tec, g.Pype or EEG are already skipped. When the checker marks something that is right, tap "Not a mistake" under it and the word lands here.</p>';
+  return state.dict.slice().sort().map(w => '<span class="dchip">' + esc(w) + '<button type="button" data-act="dict-del" data-w="' + esc(w) + '" aria-label="Remove ' + esc(w) + '">' + ICON.x + '</button></span>').join('');
 }
 function exportData() {
   const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
@@ -3123,7 +4122,8 @@ function importData(file) {
     if (!confirm('Replace everything in this browser with the backup?')) return;
     state = normalize(obj);
     save(); closeDialog();
-    BD = null; WV = null; LS = null; if (SP) { sCleanup(true); SP = null; } ui.pv = 'list';
+    BD = null; WV = null; LS = null; LN = null; CW = null; if (SP) { sCleanup(true); SP = null; } ui.pv = 'list';
+    ui.wordsDir = state.settings.reviewDir;
     render(); toast('Backup imported');
   };
   r.readAsText(file);
@@ -3153,7 +4153,9 @@ function go(key) {
   if (key.startsWith('w:')) { leaveTab(); openWriting(key.slice(2)); return; }
   if (key.startsWith('s:')) { leaveTab(); openSpeaking(key.slice(2)); return; }
   if (key === 'words:review') { leaveTab(); if (dueWords().length) startReview(); else { ui.tab = 'words'; render(); scrollTop(); toast('Nothing due right now'); } return; }
-  if (key === 'words:add') { leaveTab(); ui.tab = 'words'; render(); const el = $('#w-term'); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); } return; }
+  if (key === 'words:add') { leaveTab(); LN = null; ui.tab = 'words'; ui.addOpen = true; render(); const el = $('#w-term'); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); } return; }
+  if (key === 'words:learn') { leaveTab(); startLearn(); return; }
+  if (key === 'r:cw') { leaveTab(); startCW(); return; }
   if (key.startsWith('scores:')) {
     leaveTab(); ui.tab = 'progress'; ui.scoreForm = key.slice(7); render();
     const f = $('#score-form'); if (f) { f.scrollIntoView({ block: 'start' }); const i = $('input[type=number]', f); if (i) i.focus({ preventScroll: true }); }
@@ -3232,8 +4234,34 @@ document.addEventListener('click', ev => {
       if (key[0] === 'e') checkEssay(id); else checkRevision(id);
       break;
     }
+    case 'lt-ok': {
+      const key = d.key, e = state.essays.find(x => x.id === key.slice(2)); if (!e) break;
+      const src = key[0] === 'r' ? e.rev : e;
+      if (!src || !src.lt) { toast('Check your text again first'); break; }
+      const m = visibleMatches(src.lt, src.text)[+d.i]; if (!m) break;
+      const msg = acceptMatch(m, src.text);
+      save(); renderMain(); toast(msg);
+      break;
+    }
     case 'fb-get': getFeedback(d.id); break;
     case 'key-remove': setApiKey(''); openSettings(); if (ui.pv === 'result') refreshFB(ui.resultId); toast('API key removed'); break;
+    case 'dict-del': {
+      state.dict = state.dict.filter(w => w !== d.w); save();
+      const box = $('#dictlist'); if (box) box.innerHTML = dictHTML();
+      if (ui.tab === 'practice' && (ui.pv === 'result' || ui.pv === 'revise')) renderMain();
+      toast('"' + d.w + '" removed from your dictionary');
+      break;
+    }
+    case 'ign-clear': {
+      state.ltIgnore = []; save();
+      const l = $('#ign-line'); if (l) l.textContent = 'Hidden suggestions will show again.';
+      if (ui.tab === 'practice' && (ui.pv === 'result' || ui.pv === 'revise')) renderMain();
+      break;
+    }
+    /* complete the words */
+    case 'cw-open': leaveTab(); startCW(d.id); break;
+    case 'cw-check': cwCheck(); break;
+    case 'cw-next': { const i = CTEST.findIndex(x => CW && x.id === CW.id); startCW(CTEST[(i + 1) % CTEST.length].id); break; }
     /* build a sentence */
     case 'b-place': if (BD && !BD.checked) { BD.placed.push(+d.k); refreshMain(); const nb = $('.bank .chunk'); if (nb) nb.focus(); else { const c = $('[data-act="b-check"]'); if (c) c.focus(); } } break;
     case 'b-unplace': if (BD && !BD.checked) { BD.placed = BD.placed.filter(k => k !== +d.k); refreshMain(); } break;
@@ -3257,7 +4285,29 @@ document.addEventListener('click', ev => {
     case 'v-yes': if (WV && WV.revealed) answerWord(true); break;
     case 'v-no': if (WV && WV.revealed) answerWord(false); break;
     case 'v-end': if (WV) { if (WV.answers) finishReview(); else { WV = null; renderMain(); } } break;
-    case 'v-dir': ui.wordsDir = d.dir; renderMain(); break;
+    case 'v-dir': ui.wordsDir = state.settings.reviewDir = d.dir; save(); renderMain(); { const b = $('[data-act="v-dir"][data-dir="' + d.dir + '"]'); if (b) b.focus(); } break;
+    case 'v-check': if (WV && !WV.res) { const el = $('#v-inp'), val = el ? el.value : ''; if (!val.trim()) { toast('Type the word first, or tap Show me'); break; } reviewTyped(val); } break;
+    case 'v-idk': if (WV && !WV.res) reviewTyped(null); break;
+    case 'v-self': if (WV && WV.res === 'no') { WV.res = 'ok'; renderMain(); focusSel('#v-next'); } break;
+    case 'v-next': if (WV && WV.res) answerWord(WV.res === 'ok'); break;
+    /* new words */
+    case 'n-start': leaveTab(); startLearn(d.set); break;
+    case 'n-learn': lnCard(false); break;
+    case 'n-knew': lnCard(true); break;
+    case 'n-check': lnCheck(); break;
+    case 'n-idk': if (LN && LN.phase === 'check' && !LN.res) lnResult(false, ''); break;
+    case 'n-self': if (LN && LN.res === 'no') {
+      const e = lnEntry(), k = e.term.toLowerCase();
+      LN.res = 'ok';
+      if (LN.first[k] === false && LN.check.indexOf(e.term) === LN.ci) { LN.first[k] = true; const j = LN.check.lastIndexOf(e.term); if (j > LN.ci) LN.check.splice(j, 1); }
+      renderMain(); focusSel('#n-next');
+    } break;
+    case 'n-next': lnNext(); break;
+    case 'n-more': { const set = LN ? LN.setId : ''; LN = null; startLearn(set); break; }
+    case 'n-end':
+      if (LN && LN.phase !== 'done' && (LN.learned.length || LN.knew.length)) finishLearn();
+      else { LN = null; renderMain(); scrollTop(); }
+      break;
     case 'word-del': {
       const w = state.words.find(x => x.id === d.id); if (!w) break;
       if (!confirm('Delete "' + w.term + '"?')) break;
@@ -3278,8 +4328,8 @@ document.addEventListener('click', ev => {
     case 'reset':
       if (!confirm('Delete all your progress, words, scores and writing in this browser?')) break;
       if (!confirm('Are you sure? This cannot be undone unless you have a backup.')) break;
-      if (SP) { sCleanup(true); SP = null; } BD = null; WV = null; LS = null; WR.running = false;
-      state = defaults(); save(); closeDialog(); ui.pv = 'list'; render(); toast('Everything reset'); break;
+      if (SP) { sCleanup(true); SP = null; } BD = null; WV = null; LS = null; LN = null; CW = null; WR.running = false;
+      state = defaults(); save(); closeDialog(); ui.pv = 'list'; ui.wordsDir = state.settings.reviewDir; render(); toast('Everything reset'); break;
   }
 });
 
@@ -3322,6 +4372,9 @@ document.addEventListener('input', ev => {
   } else if (el.id === 'w-search') {
     ui.wordQuery = el.value;
     $('#wlist').innerHTML = wordListHTML();
+  } else if (el.classList && el.classList.contains('cwi') && CW && !CW.checked) {
+    CW.vals[+el.dataset.cw] = el.value;
+    if (el.value.length >= el.maxLength) { const next = $('.cwi[data-cw="' + (+el.dataset.cw + 1) + '"]'); if (next) next.focus(); }
   } else if (el.closest && el.closest('form[data-form="score"]')) {
     const f = el.closest('form'), { out } = readScoreForm(f), o = overallOf(f.dataset.exam, out);
     $('#score-overall').textContent = o == null ? '– (needs all four sections)' : o.toFixed(1);
@@ -3348,6 +4401,7 @@ document.addEventListener('submit', ev => {
     if (state.words.some(w => w.term.toLowerCase() === term.toLowerCase())) { toast('"' + term + '" is already in your list'); return; }
     state.words.unshift({ id: uid(), term, meaning: f.elements.meaning.value.trim(), example: f.elements.example.value.trim(), box: 1, due: todayISO(), added: todayISO(), reviews: 0, lapses: 0 });
     if (state.words.length >= 10) autoTick('words:add', true);
+    ui.addOpen = true;
     save(); renderTop(); renderTabs(); renderMain();
     const t = $('#w-term'); if (t) t.focus();
     toast('Added "' + term + '"');
@@ -3379,6 +4433,9 @@ document.addEventListener('submit', ev => {
     s.speakAloud = el.speakAloud.checked;
     s.spelling = el.spelling.value === 'en-US' ? 'en-US' : 'en-GB';
     s.model = MODELS[el.model.value] ? el.model.value : DEFAULT_MODEL;
+    s.name = el.name.value.trim().slice(0, 30);
+    s.newWords = NEW_WORD_OPTIONS.includes(Number(el.newWords.value)) ? Number(el.newWords.value) : 10;
+    s.bg = el.bg.value === 'plain' ? 'plain' : 'sky';
     const k = el.apiKey.value.trim();
     if (k) setApiKey(k);
     save(); closeDialog(); render(); toast(k ? 'Settings and API key saved' : 'Settings saved');
@@ -3391,6 +4448,7 @@ document.addEventListener('toggle', ev => {
     const p = +d.dataset.part;
     if (d.open) ui.openParts.add(p); else ui.openParts.delete(p);
   }
+  if (d && d.matches && d.matches('details.addword')) ui.addOpen = d.open;
 }, true);
 
 document.addEventListener('keydown', ev => {
@@ -3401,9 +4459,18 @@ document.addEventListener('keydown', ev => {
     else { const nb = $('#l-next'); if (nb) nb.click(); }
     return;
   }
+  if (t && t.id === 'n-inp' && ev.key === 'Enter') { ev.preventDefault(); lnCheck(); return; }
+  if (t && t.id === 'v-inp' && ev.key === 'Enter') { ev.preventDefault(); const b = $('[data-act="v-check"]'); if (b) b.click(); return; }
+  if (t && t.classList && t.classList.contains('cwi')) {
+    const k = +t.dataset.cw;
+    if (ev.key === 'Enter') { ev.preventDefault(); cwCheck(); }
+    else if (ev.key === 'Backspace' && !t.value && k > 0) { ev.preventDefault(); const p = $('.cwi[data-cw="' + (k - 1) + '"]'); if (p) { p.focus(); p.setSelectionRange(p.value.length, p.value.length); } }
+    return;
+  }
   if (ui.tab !== 'words' || !WV || WV.finished) return;
   if (t.closest && t.closest('input, textarea, select')) return;
   if ($('#dlg').open) return;
+  if (typeMode(curWord())) return;
   if ((ev.key === ' ' || ev.key === 'Enter') && !WV.revealed) {
     if (t.closest && t.closest('button, a, summary')) return;
     ev.preventDefault(); WV.revealed = true; renderMain(); const y = $('[data-act="v-yes"]'); if (y) y.focus();
@@ -3449,6 +4516,7 @@ setInterval(() => {
       updateWriteUI();
     } else if (ui.pv === 'speak' && SP) updateSpeakUI();
     else if (ui.pv === 'build' && BD) updateBuildTimer();
+    else if (ui.pv === 'cw' && CW) updateCWTimer();
   }
 }, 250);
 
