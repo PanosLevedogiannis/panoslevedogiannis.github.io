@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Panagiotis Leventogiannis</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="description" content="Electrical & computer engineer working on brain–computer interfaces, research trainee at g.tec medical engineering. Diploma thesis, projects and experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,7 @@
   --rule:#D2D9D8; --rule-2:#E2E7E6;
   --accent:#BE3527; --accent-soft:rgba(190,53,39,.10);
   --signal:#0E6B75;
-  --maxw:820px;
+  --maxw:1080px;
   --f-display:"Literata",Georgia,"Times New Roman",serif;
   --f-ui:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
@@ -70,23 +71,30 @@ ul{margin:0; padding:0; list-style:none}
   transition:color .15s, border-color .15s, background-color .15s}
 .lang:hover{color:var(--ink); border-color:var(--accent); background:var(--accent-soft)}
 
-/* ---------- header ---------- */
-header{padding-block:56px 40px}
-.eyebrow{font-family:var(--f-ui); font-size:11.5px; font-weight:600; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--ink-3)}
-h1{font-size:clamp(30px,5.2vw,44px); letter-spacing:-.022em}
+/* ---------- two columns: profile on the left, content on the right ---------- */
+.layout{max-width:var(--maxw); margin-inline:auto; padding:48px 24px 0;
+  display:grid; grid-template-columns:232px minmax(0,1fr); gap:56px; align-items:start}
+.profile{position:sticky; top:74px; display:flex; flex-direction:column; gap:14px}
+.avatar{display:block; width:200px; height:200px; border-radius:50%; object-fit:cover;
+  border:4px solid var(--surface); box-shadow:0 0 0 1px var(--rule); background:var(--surface)}
+h1{font-family:var(--f-ui); font-size:24px; letter-spacing:-.012em; margin-top:4px}
+.role{font-family:var(--f-ui); font-size:14.5px; line-height:1.45; color:var(--ink-2)}
+.info{display:flex; flex-direction:column; gap:9px; margin-top:4px;
+  font-family:var(--f-ui); font-size:14px; color:var(--ink-2)}
+.info li{display:flex; align-items:center; gap:10px}
+.info svg{width:16px; height:16px; flex:0 0 auto; fill:var(--ink-3)}
+.info a{text-decoration:none; color:var(--ink); border-bottom:1px solid transparent}
+.info a:hover{color:var(--accent); border-bottom-color:currentColor}
+.content{min-width:0}
+.content > section:first-child{border-top:0; padding-top:0}
 .lede{font-size:18.5px; line-height:1.6; color:var(--ink-2); max-width:62ch}
-
-/* ---------- contact ---------- */
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr; gap:8px; padding-top:32px}
+  .profile{position:static}
+  .avatar{width:150px; height:150px}
+}
 .seek{font-family:var(--f-ui); font-size:15px; line-height:1.5; color:var(--ink); max-width:62ch;
   border-inline-start:2px solid var(--accent); padding-inline-start:12px}
-.contact{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
-.pill{display:inline-flex; align-items:center; gap:7px; text-decoration:none;
-  font-family:var(--f-ui); font-size:13.5px; font-weight:500; color:var(--ink);
-  background:var(--surface); border:1px solid var(--rule); border-radius:4px;
-  padding:8px 13px; transition:border-color .15s, background-color .15s}
-.pill:hover{border-color:var(--accent); background:var(--accent-soft)}
-.pill svg{width:15px; height:15px; flex:0 0 auto; fill:currentColor; opacity:.72}
 
 /* ---------- sections ---------- */
 section{padding-block:34px; border-top:1px solid var(--rule)}
@@ -136,7 +144,7 @@ h2{font-family:var(--f-ui); font-size:11.5px; font-weight:600; letter-spacing:.1
 .detail dt{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3); padding-top:3px; white-space:nowrap}
 .detail dd{margin:0; color:var(--ink-2); line-height:1.5}
 
-footer{border-top:1px solid var(--rule); padding-block:30px 56px;
+footer{border-top:1px solid var(--rule); padding-block:30px 56px; margin-top:24px;
   font-family:var(--f-ui); font-size:13px; color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 </style>
@@ -150,26 +158,31 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </div>
 
-<header class="wrap stack s-16">
-  <div class="eyebrow" data-el="Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών · g.tec medical engineering">Electrical &amp; Computer Engineer · g.tec medical engineering</div>
+<div class="layout">
+<aside class="profile">
+  <img class="avatar" src="profile.jpg" width="200" height="200" alt="Panagiotis Leventogiannis at his desk at g.tec medical engineering">
   <h1 data-el="Παναγιώτης Λεβεντογιάννης">Panagiotis Leventogiannis</h1>
-  <p class="lede" data-el="Ολοκλήρωσα τη διπλωματική μου στις διεπαφές εγκεφάλου&#8211;υπολογιστή υπό την επίβλεψη του Αναπληρωτή Καθηγητή Αθανάσιου Κούτρα, με βαθμό 10. Σήμερα είμαι ερευνητής ασκούμενος στην Ομάδα Επεξεργασίας Σήματος της g.tec medical engineering στην Αυστρία. Με ενδιαφέρουν οι μη επεμβατικές διεπαφές εγκεφάλου&#8211;υπολογιστή, με έμφαση σε αποκωδικοποιητές ΗΕΓ που γενικεύουν αξιόπιστα και στην αυστηρή αξιολόγησή τους.">I completed my diploma thesis on brain&#8211;computer interfaces under Associate Professor Athanasios Koutras, graded 10/10. I am now a research trainee in the Signal Processing Group at g.tec medical engineering in Austria. My interest is in non-invasive BCIs, with a focus on EEG decoders that generalise reliably and on evaluating them rigorously.</p>
-  <p class="seek" data-el="Αναζητώ ερευνητική θέση που οδηγεί σε διδακτορικό στη νευρομηχανική, στις διεπαφές εγκεφάλου&#8211;υπολογιστή ή στη νευροαποκατάσταση.">Looking for a research position leading to a PhD in neural engineering, brain&#8211;computer interfaces or neurorehabilitation.</p>
-  <div class="contact">
-    <a class="pill" href="mailto:plevedogiannis@gmail.com">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.4-8 4.6-8-4.6V6l8 4.6L20 6z"/></svg>
-      plevedogiannis@gmail.com</a>
-    <a class="pill" href="https://www.linkedin.com/in/panagiotis-levedogiannis" rel="me noopener" target="_blank">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg>
-      LinkedIn</a>
-    <a class="pill" href="https://github.com/PanosLevedogiannis" rel="me noopener" target="_blank">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
-      GitHub</a>
-  </div>
-</header>
+  <p class="role" data-el="Ερευνητής ασκούμενος στις διεπαφές εγκεφάλου&#8211;υπολογιστή">Research trainee in brain&#8211;computer interfaces</p>
+  <ul class="info">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-el="Λιντς, Αυστρία">Linz, Austria</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7v2h20V7L12 2zM4 11v7h3v-7H4zm6.5 0v7h3v-7h-3zM17 11v7h3v-7h-3zM2 20v2h20v-2H2z"/></svg><span>g.tec medical engineering</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg><span data-el="Πανεπιστήμιο Πελοποννήσου">University of the Peloponnese</span></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.4-8 4.6-8-4.6V6l8 4.6L20 6z"/></svg><a href="mailto:plevedogiannis@gmail.com">Email</a></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><a href="https://github.com/PanosLevedogiannis" rel="me noopener" target="_blank">GitHub</a></li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z"/></svg><a href="https://www.linkedin.com/in/panagiotis-levedogiannis" rel="me noopener" target="_blank">LinkedIn</a></li>
+  </ul>
+</aside>
 
-<main>
-<section class="wrap">
+<main class="content">
+<section>
+  <h2 data-el="Σχετικά με εμένα">About me</h2>
+  <div class="stack s-16">
+    <p class="lede" data-el="Ολοκλήρωσα τη διπλωματική μου στις διεπαφές εγκεφάλου&#8211;υπολογιστή υπό την επίβλεψη του Αναπληρωτή Καθηγητή Αθανάσιου Κούτρα, με βαθμό 10. Σήμερα είμαι ερευνητής ασκούμενος στην Ομάδα Επεξεργασίας Σήματος της g.tec medical engineering στην Αυστρία. Με ενδιαφέρουν οι μη επεμβατικές διεπαφές εγκεφάλου&#8211;υπολογιστή, με έμφαση σε αποκωδικοποιητές ΗΕΓ που γενικεύουν αξιόπιστα και στην αυστηρή αξιολόγησή τους.">I completed my diploma thesis on brain&#8211;computer interfaces under Associate Professor Athanasios Koutras, graded 10/10. I am now a research trainee in the Signal Processing Group at g.tec medical engineering in Austria. My interest is in non-invasive BCIs, with a focus on EEG decoders that generalise reliably and on evaluating them rigorously.</p>
+    <p class="seek" data-el="Αναζητώ ερευνητική θέση που οδηγεί σε διδακτορικό στη νευρομηχανική, στις διεπαφές εγκεφάλου&#8211;υπολογιστή ή στη νευροαποκατάσταση.">Looking for a research position leading to a PhD in neural engineering, brain&#8211;computer interfaces or neurorehabilitation.</p>
+  </div>
+</section>
+
+<section>
   <h2 data-el="Διπλωματική εργασία">Diploma thesis</h2>
   <div class="thesis">
     <div class="tag" data-el="Πανεπιστήμιο Πελοποννήσου · Επιβλέπων: Αθανάσιος Κούτρας, Αναπληρωτής Καθηγητής · Βαθμός 10">University of the Peloponnese · Supervisor: Athanasios Koutras, Associate Professor · Graded 10/10</div>
@@ -187,7 +200,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </section>
 
-<section class="wrap">
+<section>
   <h2 data-el="Έργα">Projects</h2>
 
   <div class="entry">
@@ -225,7 +238,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </section>
 
-<section class="wrap">
+<section>
   <h2 data-el="Εμπειρία">Experience</h2>
 
   <div class="entry">
@@ -265,7 +278,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </section>
 
-<section class="wrap">
+<section>
   <h2 data-el="Δεξιότητες">Skills</h2>
 
   <div class="entry">
@@ -297,7 +310,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </section>
 
-<section class="wrap">
+<section>
   <h2 data-el="Σπουδές">Education</h2>
   <div class="entry">
     <div class="when" data-el="Σεπ 2020 – 2026">Sep 2020 – 2026</div>
@@ -316,6 +329,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   </div>
 </section>
 </main>
+</div>
 
 <footer class="wrap">
   <span data-el="Παναγιώτης Λεβεντογιάννης · Λιντς, Αυστρία">Panagiotis Leventogiannis · Linz, Austria</span>
