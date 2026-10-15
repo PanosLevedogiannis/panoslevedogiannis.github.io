@@ -94,6 +94,9 @@ h1{font-family:var(--f-ui); font-size:24px; letter-spacing:-.012em; margin-top:4
   .profile{position:static}
   .avatar{width:150px; height:150px}
 }
+.interests{display:flex; flex-wrap:wrap; gap:8px}
+.interests li{font-family:var(--f-ui); font-size:13px; font-weight:500; color:var(--signal);
+  background:var(--surface); border:1px solid var(--rule); border-radius:999px; padding:4px 11px}
 .seek{font-family:var(--f-ui); font-size:15px; line-height:1.5; color:var(--ink); max-width:62ch;
   border-inline-start:2px solid var(--accent); padding-inline-start:12px}
 
@@ -179,8 +182,15 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px; margin-top:24p
 <section>
   <h2 data-el="Σχετικά με εμένα">About me</h2>
   <div class="stack s-16">
-    <p class="lede" data-el="Είμαι ηλεκτρολόγος μηχανικός και μηχανικός υπολογιστών και δουλεύω στις μη επεμβατικές διεπαφές εγκεφάλου&#8211;υπολογιστή. Στη μεταπτυχιακού επιπέδου διπλωματική μου ανέπτυξα μια ολοκληρωμένη διεπαφή νοερής κίνησης: από καταγραφές ΗΕΓ σε 14 συμμετέχοντες μέχρι ένα ρομποτικό χέρι που τύπωσα και συναρμολόγησα ο ίδιος. Σήμερα είμαι ερευνητής ασκούμενος στην g.tec medical engineering, αυστριακή εταιρεία ιατρικής τεχνολογίας που αναπτύσσει διεπαφές εγκεφάλου&#8211;υπολογιστή, όπου φτιάχνω εφαρμογές BCI πραγματικού χρόνου. Με ενδιαφέρουν αποκωδικοποιητές ΗΕΓ που λειτουργούν αξιόπιστα από τη μία συνεδρία στην επόμενη.">I am an electrical and computer engineer working on non-invasive brain&#8211;computer interfaces. For my master&#8217;s thesis I built a complete motor-imagery BCI, from EEG recordings with 14 participants to a robotic hand I 3D-printed and assembled myself. I am now a research trainee at g.tec medical engineering, an Austrian medical engineering company that develops brain&#8211;computer interfaces, where I build real-time BCI applications. I am most interested in EEG decoders that keep working reliably from one session to the next.</p>
-    <p class="seek" data-el="Αναζητώ ερευνητική θέση που οδηγεί σε διδακτορικό στη νευρομηχανική, στις διεπαφές εγκεφάλου&#8211;υπολογιστή ή στη νευροαποκατάσταση.">Looking for a research position leading to a PhD in neural engineering, brain&#8211;computer interfaces or neurorehabilitation.</p>
+    <p class="lede" data-el="Είμαι ηλεκτρολόγος μηχανικός και μηχανικός υπολογιστών και δουλεύω στις μη επεμβατικές διεπαφές εγκεφάλου&#8211;υπολογιστή. Στη μεταπτυχιακού επιπέδου διπλωματική μου ανέπτυξα μια ολοκληρωμένη διεπαφή νοερής κίνησης: από καταγραφές ΗΕΓ σε 14 συμμετέχοντες μέχρι ένα ρομποτικό χέρι που τύπωσα και συναρμολόγησα ο ίδιος. Σήμερα είμαι ερευνητής ασκούμενος στην g.tec medical engineering, αυστριακή εταιρεία ιατρικής τεχνολογίας που αναπτύσσει διεπαφές εγκεφάλου&#8211;υπολογιστή, όπου φτιάχνω εφαρμογές BCI πραγματικού χρόνου. Με ενδιαφέρει το σημείο όπου συναντιούνται ο εγκέφαλος, ο άνθρωπος και τα ρομπότ: συστήματα που επιτρέπουν στους ανθρώπους να ελέγχουν ρομπότ και προσθετικά μέλη με τα σήματα του σώματός τους.">I am an electrical and computer engineer working on non-invasive brain&#8211;computer interfaces. For my master&#8217;s thesis I built a complete motor-imagery BCI, from EEG recordings with 14 participants to a robotic hand I 3D-printed and assembled myself. I am now a research trainee at g.tec medical engineering, an Austrian medical engineering company that develops brain&#8211;computer interfaces, where I build real-time BCI applications. My interest lies where the brain, the human and the robot meet: systems that let people control robots and prostheses with signals from their own body.</p>
+    <ul class="interests" aria-label="Research interests">
+      <li data-el="Διεπαφές εγκεφάλου&#8211;ρομπότ">Brain&#8211;robot interfaces</li>
+      <li data-el="Αλληλεπίδραση ανθρώπου&#8211;ρομπότ">Human&#8211;robot interaction</li>
+      <li data-el="Υποβοηθητική ρομποτική και προσθετικά">Assistive robotics &amp; prosthetics</li>
+      <li data-el="Νευροαποκατάσταση">Neurorehabilitation</li>
+      <li data-el="Επεξεργασία ΗΕΓ και μηχανική μάθηση">EEG signal processing &amp; machine learning</li>
+    </ul>
+  <p class="seek" data-el="Αναζητώ ερευνητική θέση που οδηγεί σε διδακτορικό στη νευρομηχανική, στις διεπαφές εγκεφάλου&#8211;υπολογιστή ή στη νευροαποκατάσταση.">Looking for a research position leading to a PhD in neural engineering, brain&#8211;computer interfaces or neurorehabilitation.</p>
   </div>
 </section>
 
