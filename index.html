@@ -78,6 +78,8 @@ h1{font-size:clamp(30px,5.2vw,44px); letter-spacing:-.022em}
 .lede{font-size:18.5px; line-height:1.6; color:var(--ink-2); max-width:62ch}
 
 /* ---------- contact ---------- */
+.seek{font-family:var(--f-ui); font-size:15px; line-height:1.5; color:var(--ink); max-width:62ch;
+  border-inline-start:2px solid var(--accent); padding-inline-start:12px}
 .contact{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px}
 .pill{display:inline-flex; align-items:center; gap:7px; text-decoration:none;
   font-family:var(--f-ui); font-size:13.5px; font-weight:500; color:var(--ink);
@@ -152,6 +154,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
   <div class="eyebrow" data-el="Ηλεκτρολόγος Μηχανικός και Μηχανικός Υπολογιστών · g.tec medical engineering">Electrical &amp; Computer Engineer · g.tec medical engineering</div>
   <h1 data-el="Παναγιώτης Λεβεντογιάννης">Panagiotis Leventogiannis</h1>
   <p class="lede" data-el="Ολοκλήρωσα τη διπλωματική μου στις διεπαφές εγκεφάλου&#8211;υπολογιστή υπό την επίβλεψη του Αναπληρωτή Καθηγητή Αθανάσιου Κούτρα, με βαθμό 10. Σήμερα είμαι ερευνητής ασκούμενος στην Ομάδα Επεξεργασίας Σήματος της g.tec medical engineering στην Αυστρία. Με ενδιαφέρουν οι μη επεμβατικές διεπαφές εγκεφάλου&#8211;υπολογιστή, με έμφαση σε αποκωδικοποιητές ΗΕΓ που γενικεύουν αξιόπιστα και στην αυστηρή αξιολόγησή τους.">I completed my diploma thesis on brain&#8211;computer interfaces under Associate Professor Athanasios Koutras, graded 10/10. I am now a research trainee in the Signal Processing Group at g.tec medical engineering in Austria. My interest is in non-invasive BCIs, with a focus on EEG decoders that generalise reliably and on evaluating them rigorously.</p>
+  <p class="seek" data-el="Αναζητώ ερευνητική θέση που οδηγεί σε διδακτορικό στη νευρομηχανική, στις διεπαφές εγκεφάλου&#8211;υπολογιστή ή στη νευροαποκατάσταση.">Looking for a research position leading to a PhD in neural engineering, brain&#8211;computer interfaces or neurorehabilitation.</p>
   <div class="contact">
     <a class="pill" href="mailto:plevedogiannis@gmail.com">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.4-8 4.6-8-4.6V6l8 4.6L20 6z"/></svg>
@@ -263,6 +266,38 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
 </section>
 
 <section class="wrap">
+  <h2 data-el="Δεξιότητες">Skills</h2>
+
+  <div class="entry">
+    <div class="when" data-el="Εργαλεία">Tools</div>
+    <div class="what">
+      <p>Python (g.Pype, MNE, pyRiemann, scikit-learn, NumPy, SciPy, BrainFlow, matplotlib), MATLAB, C, Bash, JavaScript, SQL, Git, Linux, LaTeX</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Μέθοδοι">Methods</div>
+    <div class="what">
+      <p data-el="Καταγραφή και προεπεξεργασία ΗΕΓ, ανάλυση ERD/ERS, CSP, μέθοδοι γεωμετρίας Riemann, σχεδιασμός cross-validation, στατιστικοί έλεγχοι, Lab Streaming Layer">EEG acquisition and preprocessing, ERD/ERS analysis, CSP, Riemannian methods, cross-validation design, statistical testing, Lab Streaming Layer</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Εξοπλισμός">Hardware</div>
+    <div class="what">
+      <p data-el="g.USBamp, g.HIamp, g.Nautilus, Unicorn, BCI Core-8, OpenBCI Cyton, Arduino, σχεδίαση σε FPGA (VHDL), ηλεκτρονικά">g.USBamp, g.HIamp, g.Nautilus, Unicorn, BCI Core-8, OpenBCI Cyton, Arduino, FPGA design (VHDL), electronics</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="when" data-el="Γλώσσες">Languages</div>
+    <div class="what">
+      <p data-el="Ελληνικά (μητρική), Αγγλικά (άριστα, ECCE), Γερμανικά (B1)">Greek (native), English (fluent, ECCE), German (B1)</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
   <h2 data-el="Σπουδές">Education</h2>
   <div class="entry">
     <div class="when" data-el="Σεπ 2020 – 2026">Sep 2020 – 2026</div>
@@ -273,7 +308,7 @@ footer{border-top:1px solid var(--rule); padding-block:30px 56px;
         <dt data-el="Κατεύθυνση">Specialisation</dt>
         <dd data-el="Μηχανική υλικού &#8212; VLSI, ψηφιακή σχεδίαση, ενσωματωμένα συστήματα">Hardware engineering &#8212; VLSI, digital design, embedded systems</dd>
         <dt data-el="Μαθήματα">Coursework</dt>
-        <dd data-el="Κυκλώματα και συστήματα για κρυπτογραφία και ασφάλεια, γλώσσες περιγραφής υλικού, σχεδίαση ψηφιακών συστημάτων σε FPGA, κυβερνοφυσικά συστήματα, προηγμένα συστήματα μικροϋπολογιστών, σήματα και συστήματα, μηχανική μάθηση">Circuits and systems for cryptography and security, hardware description languages, digital systems design on FPGAs, cyber-physical systems, advanced microcomputer systems, signals and systems, machine learning</dd>
+        <dd data-el="Σήματα και συστήματα, μηχανική μάθηση, κυβερνοφυσικά συστήματα, προηγμένα συστήματα μικροϋπολογιστών, σχεδίαση ψηφιακών συστημάτων σε FPGA, γλώσσες περιγραφής υλικού, κυκλώματα και συστήματα για κρυπτογραφία και ασφάλεια">Signals and systems, machine learning, cyber-physical systems, advanced microcomputer systems, digital systems design on FPGAs, hardware description languages, circuits and systems for cryptography and security</dd>
       </dl>
     </div>
   </div>
